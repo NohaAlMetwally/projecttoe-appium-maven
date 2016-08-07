@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Command line suite]">
+  <test name="Command line test(failed)">
+    <classes>
+      <class name="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest">
+        <methods>
+          <include name="searchGroup"/>
+          <include name="hugPost"/>
+          <include name="canAddPending"/>
+          <include name="canBlockUnblockUsers"/>
+          <include name="upgradeUserToPremium"/>
+          <include name="checkGroupDetails"/>
+          <include name="canAddRemoveHelper"/>
+          <include name="forgotPasswordInValidEmail"/>
+          <include name="canBroadcastMessage"/>
+          <include name="loginWithInvalidCredentials"/>
+          <include name="loadMessages"/>
+          <include name="signUpValidValues"/>
+          <include name="EditProfile"/>
+          <include name="goToChatTab"/>
+          <include name="logIn"/>
+          <include name="setUp"/>
+          <include name="loadRequests"/>
+          <include name="addGroup"/>
+          <include name="afterClass"/>
+          <include name="forgotPasswordValidEmail"/>
+          <include name="goToRequestsTab"/>
+          <include name="canLeaveJoinPublicGroup"/>
+          <include name="goToNotificationsTab"/>
+          <include name="logout"/>
+          <include name="loadGroups"/>
+          <include name="startPrivateChat"/>
+          <include name="startGroupChat"/>
+          <include name="loadNotifications"/>
+          <include name="makePost"/>
+          <include name="commentPost"/>
+        </methods>
+      </class> <!-- com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest -->
+    </classes>
+  </test> <!-- Command line test(failed) -->
+</suite> <!-- Failed suite [Command line suite] -->
