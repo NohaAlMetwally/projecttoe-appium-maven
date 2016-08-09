@@ -6,23 +6,8 @@
       <class name="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest">
         <methods>
           <include name="setUp"/>
-          <include name="loadRequests"/>
-          <include name="addGroup"/>
           <include name="afterClass"/>
-          <include name="canAddPending"/>
-          <include name="goToRequestsTab"/>
-          <include name="canLeaveJoinPublicGroup"/>
-          <include name="goToNotificationsTab"/>
-          <include name="logout"/>
-          <include name="canAddRemoveHelper"/>
-          <include name="canBroadcastMessage"/>
-          <include name="startPrivateChat"/>
-          <include name="loadMessages"/>
-          <include name="signUpValidValues"/>
-          <include name="EditProfile"/>
-          <include name="startGroupChat"/>
-          <include name="loadNotifications"/>
-          <include name="goToChatTab"/>
+          <include name="signIn"/>
         </methods>
       </class> <!-- com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest -->
     </classes>
