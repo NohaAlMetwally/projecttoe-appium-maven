@@ -5,36 +5,24 @@
     <classes>
       <class name="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest">
         <methods>
-          <include name="searchGroup"/>
-          <include name="hugPost"/>
-          <include name="canAddPending"/>
-          <include name="canBlockUnblockUsers"/>
-          <include name="upgradeUserToPremium"/>
-          <include name="checkGroupDetails"/>
-          <include name="canAddRemoveHelper"/>
-          <include name="forgotPasswordInValidEmail"/>
-          <include name="canBroadcastMessage"/>
-          <include name="loginWithInvalidCredentials"/>
-          <include name="loadMessages"/>
-          <include name="signUpValidValues"/>
-          <include name="EditProfile"/>
-          <include name="goToChatTab"/>
-          <include name="logIn"/>
           <include name="setUp"/>
           <include name="loadRequests"/>
           <include name="addGroup"/>
           <include name="afterClass"/>
-          <include name="forgotPasswordValidEmail"/>
+          <include name="canAddPending"/>
           <include name="goToRequestsTab"/>
           <include name="canLeaveJoinPublicGroup"/>
           <include name="goToNotificationsTab"/>
           <include name="logout"/>
-          <include name="loadGroups"/>
+          <include name="canAddRemoveHelper"/>
+          <include name="canBroadcastMessage"/>
           <include name="startPrivateChat"/>
+          <include name="loadMessages"/>
+          <include name="signUpValidValues"/>
+          <include name="EditProfile"/>
           <include name="startGroupChat"/>
           <include name="loadNotifications"/>
-          <include name="makePost"/>
-          <include name="commentPost"/>
+          <include name="goToChatTab"/>
         </methods>
       </class> <!-- com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest -->
     </classes>

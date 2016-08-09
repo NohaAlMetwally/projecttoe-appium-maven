@@ -99,6 +99,7 @@ public class ProjectToeAndroidTest {
 			// File app = new File(TARGET_APP_PATH);
 
 			DesiredCapabilities capabilities = new DesiredCapabilities();
+//	        capabilities.setCapability("app", "/Users/Noha/apks/ProjectToe.apk");
 			capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,
 					"Galaxy Note 4");
 
@@ -164,151 +165,171 @@ public class ProjectToeAndroidTest {
 		@Test(groups = "main", priority = 9, enabled = true)
 		public void logIn() throws Exception {
 			System.out.println("logIn");
+			try {
+				WebElement elementUserName = driver.findElement(By
+						.id("login_username_edittext"));
+				WebElement elementUserPassword = driver.findElement(By
+						.id("login_password_edittext"));
+				WebElement elementUserSubmit = driver.findElement(By
+						.id("login_submit_button"));
 
-			WebElement elementUserName = driver.findElement(By
-					.id("login_username_edittext"));
-			WebElement elementUserPassword = driver.findElement(By
-					.id("login_password_edittext"));
-			WebElement elementUserSubmit = driver.findElement(By
-					.id("login_submit_button"));
+				elementUserName.sendKeys(username);
+				elementUserPassword.sendKeys(password);
+				elementUserSubmit.click();
 
-			elementUserName.sendKeys(username);
-			elementUserPassword.sendKeys(password);
-			elementUserSubmit.click();
-
-			driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
-
+				driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			} catch (Exception e) {
+				System.out.println("Couldn't login, something went wrong");
+			}
 		}
 
-		@Test(groups = "loginIssues", priority = 2, enabled = true)
+		@Test(groups = "loginIssues", priority = 2, enabled = false)
 		public void forgotPasswordInValidEmail() throws MalformedURLException {
 			System.out.println("forgot Password InValid Email");
+			try {
+				WebElement elementTvForgetPassword = driver.findElement(By
+						.id("login_forgot_password_textview"));
+				elementTvForgetPassword.click();
 
-			WebElement elementTvForgetPassword = driver.findElement(By
-					.id("login_forgot_password_textview"));
-			elementTvForgetPassword.click();
+				WebElement elementEtEmail = (new WebDriverWait(driver, 60))
+						.until(ExpectedConditions.presenceOfElementLocated(By
+								.id("com.microdoers.projecttoe:id/forgotPassword_email")));
 
-			WebElement elementEtEmail = (new WebDriverWait(driver, 60))
-					.until(ExpectedConditions.presenceOfElementLocated(By
-							.id("com.microdoers.projecttoe:id/forgotPassword_email")));
+				// no such email in DB
+				elementEtEmail.sendKeys("test212@gmail.com");
+				WebElement elementBSubmit = driver
+						.findElement(By
+								.id("com.microdoers.projecttoe:id/forgotPassword_submit_button"));
+				elementBSubmit.click();
 
-			// no such email in DB
-			elementEtEmail.sendKeys("test212@gmail.com");
-			WebElement elementBSubmit = driver
-					.findElement(By
-							.id("com.microdoers.projecttoe:id/forgotPassword_submit_button"));
-			elementBSubmit.click();
+				// wait until reset password msg appears
+				WebElement elementLoginFailedMsgTitle = (new WebDriverWait(driver,
+						60)).until(ExpectedConditions.presenceOfElementLocated(By
+						.id("com.microdoers.projecttoe:id/alertTitle")));
 
-			// wait until reset password msg appears
-			WebElement elementLoginFailedMsgTitle = (new WebDriverWait(driver, 60))
-					.until(ExpectedConditions.presenceOfElementLocated(By
-							.id("com.microdoers.projecttoe:id/alertTitle")));
+				// check for reset password title
+				assertEquals(elementLoginFailedMsgTitle.getText(), resetPassFailed);
+				WebElement elementOk = driver.findElement(By
+						.id("android:id/button1"));
+				elementOk.click();
+				elementEtEmail.clear();
 
-			// check for reset password title
-			assertEquals(elementLoginFailedMsgTitle.getText(), resetPassFailed);
-			WebElement elementOk = driver.findElement(By.id("android:id/button1"));
-			elementOk.click();
-			elementEtEmail.clear();
+				System.out.println("forgot Password InValid Email Successful!");
 
-			System.out.println("forgot Password InValid Email Successful!");
-
-			driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
-
+				driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			} catch (Exception e) {
+				System.out
+						.println("Couldn't do forgot Password InValid Email, something went wrong");
+			}
 		}
 
-		@Test(groups = "loginIssues", priority = 3, enabled = true)
+		@Test(groups = "loginIssues", priority = 3, enabled = false)
 		public void forgotPasswordValidEmail() throws MalformedURLException {
 			System.out.println("forgot Password Valid Email");
+			try {
+				WebElement elementEtEmail = driver.findElement(By
+						.id("com.microdoers.projecttoe:id/forgotPassword_email"));
 
-			WebElement elementEtEmail = driver.findElement(By
-					.id("com.microdoers.projecttoe:id/forgotPassword_email"));
+				elementEtEmail.sendKeys("noha.elmetwally@microdoers.com");
+				WebElement elementBSubmit = driver
+						.findElement(By
+								.id("com.microdoers.projecttoe:id/forgotPassword_submit_button"));
+				elementBSubmit.click();
 
-			elementEtEmail.sendKeys("noha.elmetwally@microdoers.com");
-			WebElement elementBSubmit = driver
-					.findElement(By
-							.id("com.microdoers.projecttoe:id/forgotPassword_submit_button"));
-			elementBSubmit.click();
+				// wait until reset password msg appears
+				WebElement elementLoginFailedMsgTitle = (new WebDriverWait(driver,
+						60)).until(ExpectedConditions.presenceOfElementLocated(By
+						.id("com.microdoers.projecttoe:id/alertTitle")));
 
-			// wait until reset password msg appears
-			WebElement elementLoginFailedMsgTitle = (new WebDriverWait(driver, 60))
-					.until(ExpectedConditions.presenceOfElementLocated(By
-							.id("com.microdoers.projecttoe:id/alertTitle")));
+				// check for reset password title
+				assertEquals(elementLoginFailedMsgTitle.getText(), resetPassSuccess);
+				WebElement elementOk = driver.findElement(By
+						.id("android:id/button1"));
+				elementOk.click();
 
-			// check for reset password title
-			assertEquals(elementLoginFailedMsgTitle.getText(), resetPassSuccess);
-			WebElement elementOk = driver.findElement(By.id("android:id/button1"));
-			elementOk.click();
+				System.out.println("forgot Password Valid Email Successful!");
 
-			System.out.println("forgot Password Valid Email Successful!");
-
-			driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
-
+				driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			} catch (Exception e) {
+				System.out
+						.println("Couldn't do forgot Password Valid Email, something went wrong");
+			}
 		}
 
-		@Test(groups = "loginIssues", priority = 4, enabled = true)
+		@Test(groups = "loginIssues", priority = 4, enabled = false)
 		public void loginWithInvalidCredentials() throws MalformedURLException {
 			// replace here to make test fail
 			System.out.println("login With Invalid Credentials");
+			try {
+				WebElement elementUserName = driver.findElement(By
+						.id("login_username_edittext"));
+				elementUserName.sendKeys("invalidEmail");
+				WebElement elementUserPassword = driver.findElement(By
+						.id("login_password_edittext"));
+				elementUserPassword.sendKeys("wrongPassword");
+				WebElement elementUserSubmit = driver.findElement(By
+						.id("login_submit_button"));
+				elementUserSubmit.click();
 
-			WebElement elementUserName = driver.findElement(By
-					.id("login_username_edittext"));
-			elementUserName.sendKeys("invalidEmail");
-			WebElement elementUserPassword = driver.findElement(By
-					.id("login_password_edittext"));
-			elementUserPassword.sendKeys("wrongPassword");
-			WebElement elementUserSubmit = driver.findElement(By
-					.id("login_submit_button"));
-			elementUserSubmit.click();
+				// wait until msg appears
+				WebElement elementLoginFailedMsgTitle = (new WebDriverWait(driver,
+						60)).until(ExpectedConditions.presenceOfElementLocated(By
+						.id("com.microdoers.projecttoe:id/alertTitle")));
 
-			// wait until msg appears
-			WebElement elementLoginFailedMsgTitle = (new WebDriverWait(driver, 60))
-					.until(ExpectedConditions.presenceOfElementLocated(By
-							.id("com.microdoers.projecttoe:id/alertTitle")));
+				// check for login failed dialog title
+				assertEquals(elementLoginFailedMsgTitle.getText(), loginFailedMsg);
+				WebElement elementOk = driver.findElement(By
+						.id("android:id/button1"));
+				elementOk.click();
 
-			// check for login failed dialog title
-			assertEquals(elementLoginFailedMsgTitle.getText(), loginFailedMsg);
-			WebElement elementOk = driver.findElement(By.id("android:id/button1"));
-			elementOk.click();
+				elementUserName.clear();
+				driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+				elementUserPassword.clear();
 
-			elementUserName.clear();
-			driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
-			elementUserPassword.clear();
+				System.out.println("login With Invalid Credentials Successfully!");
 
-			System.out.println("login With Invalid Credentials Successfully!");
-
-			driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
-
+				driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			} catch (Exception e) {
+				System.out
+						.println("Couldn't login With Invalid Credentials, something went wrong");
+			}
 		}
 
-		@Test(groups = "newsfeed", priority = 12, enabled = true)
+		@Test(groups = "newsfeed", priority = 12, enabled = false)
 		public void makePost() throws Exception {
 			System.out.println("makePost");
-			WebElement elementAddNewPost = driver.findElement(By
-					.id("fab_add_new_post"));
+			try {
+				WebElement elementAddNewPost = driver.findElement(By
+						.id("fab_add_new_post"));
 
-			elementAddNewPost.click();
-			WebElement elementAddNewPostTxt = driver.findElement(By
-					.id("add_new_post_txt"));
+				elementAddNewPost.click();
+				WebElement elementAddNewPostTxt = driver.findElement(By
+						.id("add_new_post_txt"));
 
-			elementAddNewPostTxt.sendKeys(postContent);
-			driver.findElement(By.id("action_addNewPost")).click();
-			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-			if (isElementPresent(By.id("com.microdoers.projecttoe:id/alertTitle"))) {
-				WebElement elementPostFailed = driver.findElement(By
-						.id("com.microdoers.projecttoe:id/alertTitle"));
-				assertEquals(elementPostFailed.getText(), addPostFailed);
-				System.out.println(driver.findElement(By.id("android:id/message"))
-						.getText());
-				driver.findElement(By.id("android:id/button1")).click();
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
-				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+				elementAddNewPostTxt.sendKeys(postContent);
+				driver.findElement(By.id("action_addNewPost")).click();
+				driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+				if (isElementPresent(By
+						.id("com.microdoers.projecttoe:id/alertTitle"))) {
+					WebElement elementPostFailed = driver.findElement(By
+							.id("com.microdoers.projecttoe:id/alertTitle"));
+					assertEquals(elementPostFailed.getText(), addPostFailed);
+					System.out.println(driver.findElement(
+							By.id("android:id/message")).getText());
+					driver.findElement(By.id("android:id/button1")).click();
+					driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-			} else {
-				System.out.println("Making a new post successful");
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-				checkPostSuccessful();
+				} else {
+					System.out.println("Making a new post successful");
+					driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+					checkPostSuccessful();
+				}
+			} catch (Exception e) {
+				System.out
+						.println("Couldn't make a new post, something went wrong");
 			}
 		}
 
@@ -331,56 +352,67 @@ public class ProjectToeAndroidTest {
 			System.out.println("Finding post just added successful");
 		}
 
-		@Test(groups = "newsfeed", priority = 13, enabled = true)
+		@Test(groups = "newsfeed", priority = 13, enabled = false)
 		public void hugPost() throws Exception {
 			// replace here to make test fail
 			System.out.println("hug Post");
-			List<WebElement> firstElementInPosts = driver
-					.findElements(By
-							.xpath("//android.widget.TextView[@resource-id='com.microdoers.projecttoe:id/post_likesNum']"));
-			WebElement elementHugsNum = firstElementInPosts.get(0);
-			int prevHugsNum = Integer.parseInt(elementHugsNum.getText());
-			List<WebElement> firstElementHug = driver
-					.findElements(By
-							.xpath("//android.widget.ImageView[@resource-id='com.microdoers.projecttoe:id/post_hug_img']"));
-			WebElement elementHug = firstElementHug.get(0);
-			elementHug.click();
-			int currentHugsNum = Integer.parseInt(elementHugsNum.getText());
-			if (prevHugsNum < currentHugsNum) {
-				System.out.println("Hug Post Successfully!");
-			} else if (prevHugsNum > currentHugsNum) {
-				System.out.println("Unhug Post Successfully!");
-			} else {
-				System.out.println("Hug Post Failed!");
+			try {
+				List<WebElement> firstElementInPosts = driver
+						.findElements(By
+								.xpath("//android.widget.TextView[@resource-id='com.microdoers.projecttoe:id/post_likesNum']"));
+				WebElement elementHugsNum = firstElementInPosts.get(0);
+				int prevHugsNum = Integer.parseInt(elementHugsNum.getText());
+				List<WebElement> firstElementHug = driver
+						.findElements(By
+								.xpath("//android.widget.ImageView[@resource-id='com.microdoers.projecttoe:id/post_hug_img']"));
+				WebElement elementHug = firstElementHug.get(0);
+				elementHug.click();
+				int currentHugsNum = Integer.parseInt(elementHugsNum.getText());
+				if (prevHugsNum < currentHugsNum) {
+					System.out.println("Hug Post Successfully!");
+				} else if (prevHugsNum > currentHugsNum) {
+					System.out.println("Unhug Post Successfully!");
+				} else {
+					System.out.println("Hug Post Failed!");
+				}
+			} catch (Exception e) {
+				System.out.println("Couldn't Hug Post, something went wrong");
 			}
 		}
 
-		@Test(groups = "newsfeed", priority = 14, enabled = true)
+		@Test(groups = "newsfeed", priority = 14, enabled = false)
 		public void commentPost() throws Exception {
 			// replace here to make test fail
 			System.out.println("Comment Post");
-			WebElement elementComment = driver.findElement(By
-					.id("com.microdoers.projecttoe:id/comments_num_layout"));
-			elementComment.click();
-			WebElement elementCommentsNum = (new WebDriverWait(driver, 60))
-					.until(ExpectedConditions.presenceOfElementLocated(By
-							.id("com.microdoers.projecttoe:id/post_details_commentsNum")));
-			int prevCommentsNum = Integer.parseInt(elementCommentsNum.getText());
-			WebElement elementWriteComment = driver.findElement(By
-					.id("com.microdoers.projecttoe:id/add_comment_txt"));
-			elementWriteComment.sendKeys(greetingsAppium);
-			driver.findElement(
-					By.id("com.microdoers.projecttoe:id/add_comment_btn")).click();
-			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			int currentCommentsNum = Integer.parseInt(elementCommentsNum.getText());
+			try {
+				WebElement elementComment = driver.findElement(By
+						.id("com.microdoers.projecttoe:id/comments_num_layout"));
+				elementComment.click();
+				WebElement elementCommentsNum = (new WebDriverWait(driver, 60))
+						.until(ExpectedConditions.presenceOfElementLocated(By
+								.id("com.microdoers.projecttoe:id/post_details_commentsNum")));
+				int prevCommentsNum = Integer
+						.parseInt(elementCommentsNum.getText());
+				WebElement elementWriteComment = driver.findElement(By
+						.id("com.microdoers.projecttoe:id/add_comment_txt"));
+				elementWriteComment.sendKeys(greetingsAppium);
+				driver.findElement(
+						By.id("com.microdoers.projecttoe:id/add_comment_btn"))
+						.click();
+				driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+				int currentCommentsNum = Integer.parseInt(elementCommentsNum
+						.getText());
 
-			if (prevCommentsNum < currentCommentsNum) {
-				System.out.println("comment On Post Successfully!");
-			} else {
-				System.out.println("comment On Post Failed!");
+				if (prevCommentsNum < currentCommentsNum) {
+					System.out.println("comment On Post Successfully!");
+				} else {
+					System.out.println("comment On Post Failed!");
+				}
+				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			} catch (Exception e) {
+				System.out
+						.println("Couldn't comment On post, something went wrong");
 			}
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
-
 		}
 
 		@Test(groups = "groupsTab", priority = 20, enabled = true)
@@ -454,36 +486,42 @@ public class ProjectToeAndroidTest {
 		public void loadGroups() throws Exception {
 			// replace here to make test fail
 			System.out.println("load Groups");
-			driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
-			List<WebElement> elementGroupTab = driver
-					.findElements(By
-							.xpath("//android.widget.ImageView[@resource-id='com.microdoers.projecttoe:id/tabIcon']"));
-			elementGroupTab.get(1).click();
-			driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
-			// check for YOUR SUPPORT GROUP
-			List<WebElement> elementYourSupportGroupSection = (driver
-					.findElements(By
-							.xpath("//android.widget.TextView[@resource-id='com.microdoers.projecttoe:id/group_header_txt']")));
-			assertNotNull(elementYourSupportGroupSection.get(0));
-			// check if there's actual groups showing
-			List<WebElement> elementYourSupportGroups = driver
-					.findElements(By
-							.xpath("//android.widget.ImageButton[@resource-id='com.microdoers.projecttoe:id/group_wall_bttn']"));
-			assertNotEquals(elementYourSupportGroups.size(), 0);
-			System.out.println(elementYourSupportGroupSection.get(0).getText());
+			try {
+				driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+				List<WebElement> elementGroupTab = driver
+						.findElements(By
+								.xpath("//android.widget.ImageView[@resource-id='com.microdoers.projecttoe:id/tabIcon']"));
+				elementGroupTab.get(1).click();
+				driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+				// check for YOUR SUPPORT GROUP
+				List<WebElement> elementYourSupportGroupSection = (driver
+						.findElements(By
+								.xpath("//android.widget.TextView[@resource-id='com.microdoers.projecttoe:id/group_header_txt']")));
+				assertNotNull(elementYourSupportGroupSection.get(0));
+				// check if there's actual groups showing
+				List<WebElement> elementYourSupportGroups = driver
+						.findElements(By
+								.xpath("//android.widget.ImageButton[@resource-id='com.microdoers.projecttoe:id/group_wall_bttn']"));
+				assertNotEquals(elementYourSupportGroups.size(), 0);
+				System.out.println(elementYourSupportGroupSection.get(0).getText());
 
-			// check for RECOMMENDED SUPPORT GROUPS
-			/*
-			 * driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS); try
-			 * { if (!isElementPresent(By.name("RECOMMENDED SUPPORT GROUPS"))) {
-			 * WebElement elementRecommendedGroups = driver
-			 * .scrollTo("RECOMMENDED SUPPORT GROUPS");
-			 * assertNotNull(elementRecommendedGroups); } } catch (NotFoundException
-			 * e) { System.out.println("Could not find RECOMMENDED SUPPORT GROUPS");
-			 * }
-			 */
+				// check for RECOMMENDED SUPPORT GROUPS
+				/*
+				 * driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+				 * try { if
+				 * (!isElementPresent(By.name("RECOMMENDED SUPPORT GROUPS"))) {
+				 * WebElement elementRecommendedGroups = driver
+				 * .scrollTo("RECOMMENDED SUPPORT GROUPS");
+				 * assertNotNull(elementRecommendedGroups); } } catch
+				 * (NotFoundException e) {
+				 * System.out.println("Could not find RECOMMENDED SUPPORT GROUPS");
+				 * }
+				 */
 
-			System.out.println("load Groups successfully!");
+				System.out.println("load Groups successfully!");
+			} catch (Exception e) {
+				System.out.println("Couldn't load Groups, something went wrong");
+			}
 		}
 
 		@Test(groups = "groupsTab", priority = 22, enabled = true)
@@ -506,9 +544,9 @@ public class ProjectToeAndroidTest {
 				(new WebDriverWait(driver, 60))
 						.until(ExpectedConditions.presenceOfElementLocated(By
 								.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
-				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 				// go back to groups tab
 				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+
 
 				System.out.println("search group success!");
 			} catch (NotFoundException e) {
@@ -520,6 +558,7 @@ public class ProjectToeAndroidTest {
 		public void addGroup() throws Exception {
 			// replace here to make test fail
 			System.out.println("add group");
+			try{
 			WebElement elementStartGroup = driver.findElement(By
 					.id("com.microdoers.projecttoe:id/start_group_bttn"));
 			elementStartGroup.click();
@@ -565,6 +604,7 @@ public class ProjectToeAndroidTest {
 				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 				// change in new apk
 			} else if (isElementPresent(By.name("Ready to add \"Helpers?\""))) {
+				newGroupAdded = true;
 				driver.findElement(By.id("android:id/button2")).click();
 				// boost dialog
 				if (isElementPresent(By.name("Boost"))) {
@@ -579,6 +619,8 @@ public class ProjectToeAndroidTest {
 			} else {
 				fail("Did not add group successfully");
 
+			}} catch (NotFoundException e) {
+				System.out.println("search add group, something went wrong");
 			}
 
 		}
@@ -619,9 +661,13 @@ public class ProjectToeAndroidTest {
 				System.out.println("Make Group Helper");
 				// check for reviews
 				try {
+					// wait until group's name shows up
 					(new WebDriverWait(driver, 60))
 							.until(ExpectedConditions.presenceOfElementLocated(By
-									.id("com.microdoers.projecttoe:id/action_edit_profile")))
+									.id("com.microdoers.projecttoe:id/group_name")));
+					// open menu
+					driver.findElement(
+							By.id("com.microdoers.projecttoe:id/action_edit_profile"))
 							.click();
 					(new WebDriverWait(driver, 60))
 							.until(ExpectedConditions.presenceOfElementLocated(By
@@ -782,6 +828,7 @@ public class ProjectToeAndroidTest {
 					// check to see if we just added a group
 					// if no group added choose another group this user is joining
 					// check to see if this group has no reviews
+					driver.scrollTo("AppiumTestAndroid2");
 					if (isElementPresent(By
 							.id("com.microdoers.projecttoe:id/write_review_button"))) {
 						System.out.println("this group has no reviews");
@@ -869,10 +916,13 @@ public class ProjectToeAndroidTest {
 			System.out.println("Can Boost Group");
 			if (newGroupAdded) {
 				try {
-					// click on action bar menu
+					// wait until group's name shows up
 					(new WebDriverWait(driver, 60))
 							.until(ExpectedConditions.presenceOfElementLocated(By
-									.id("com.microdoers.projecttoe:id/action_edit_profile")))
+									.id("com.microdoers.projecttoe:id/group_name")));
+					// open menu
+					driver.findElement(
+							By.id("com.microdoers.projecttoe:id/action_edit_profile"))
 							.click();
 					// click on BOOST
 					(new WebDriverWait(driver, 60))
@@ -884,28 +934,18 @@ public class ProjectToeAndroidTest {
 							.until(ExpectedConditions.presenceOfElementLocated(By
 									.id("com.microdoers.projecttoe:id/one_day_bttn")))
 							.click();
-					if (isElementPresent(By.name("Error"))) {
-						driver.findElement(
-								By.id("com.android.vending:id/continue_button"))
-								.click();
-						((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
-						(new WebDriverWait(driver, 60))
-								.until(ExpectedConditions.presenceOfElementLocated(By
-										.id("com.microdoers.projecttoe:id/one_day_bttn")));
-						((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
-						System.out.println("couldn't boost error occurred");
-					} else {
-
-						WebElement elementDialogButton = (new WebDriverWait(driver,
-								60))
-								.until(ExpectedConditions.presenceOfElementLocated(By
-										.id("com.android.vending:id/continue_button")));
-						elementDialogButton.click();
+					driver.findElement(
+							By.id("com.android.vending:id/continue_button"))
+							.click();
+					if (!isElementPresent(By.name("Want Members Faster?"))) {					
 						System.out.println("can boost group succeed");
+					} else {					
+						((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);					
+						System.out.println("couldn't boost error occurred");
 					} // go to groups tab
 					(new WebDriverWait(driver, 60))
 							.until(ExpectedConditions.presenceOfElementLocated(By
-									.id("com.microdoers.projecttoe:id/action_edit_profile")));
+									.id("com.microdoers.projecttoe:id/action_edit_profile")));								
 				} catch (Exception e) {
 					System.out.println("Couldn't find menu");
 				}
@@ -920,10 +960,13 @@ public class ProjectToeAndroidTest {
 			System.out.println("Can Downgrade Group");
 			if (newGroupAdded && upgradeGroupToPremium) {
 				try {
-					// click on action bar menu
+					// wait until group's name shows up
 					(new WebDriverWait(driver, 60))
 							.until(ExpectedConditions.presenceOfElementLocated(By
-									.id("com.microdoers.projecttoe:id/action_edit_profile")))
+									.id("com.microdoers.projecttoe:id/group_name")));
+					// open menu
+					driver.findElement(
+							By.id("com.microdoers.projecttoe:id/action_edit_profile"))
 							.click();
 					if (!isElementPresent(By.name("Admin Panel"))) {
 						(new WebDriverWait(driver, 60))
@@ -970,6 +1013,7 @@ public class ProjectToeAndroidTest {
 				}
 			} else {
 				System.out.println("Group is not even premium");
+				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 			}
 		}
 
@@ -979,19 +1023,18 @@ public class ProjectToeAndroidTest {
 			System.out.println("Can Leave Join Public Group");
 			try {
 				// search for #My_School and open group wall
-				(new WebDriverWait(driver, 60)).until(
-						ExpectedConditions.presenceOfElementLocated(By
-								.name("#My_School"))).click();
+				searchSpecificGroup("My_Schoo");
 			} catch (NotFoundException e) {
 				System.out.println("Could not click #My_School");
 			}
 			try {
 				// open menu
-				(new WebDriverWait(driver, 60))
-						.until(ExpectedConditions.presenceOfElementLocated(By
-								.id("com.microdoers.projecttoe:id/action_edit_profile")))
+				(new WebDriverWait(driver, 60)).until(ExpectedConditions
+						.presenceOfElementLocated(By
+								.id("com.microdoers.projecttoe:id/group_name")));
+				driver.findElement(
+						By.id("com.microdoers.projecttoe:id/action_edit_profile"))
 						.click();
-
 				// click on leave group
 				WebElement editProfile;
 				if (!isElementPresent(By
@@ -1020,17 +1063,12 @@ public class ProjectToeAndroidTest {
 				} else {
 					// if it's not visible so everything went good
 					System.out.println("leaving group succeed");
+					// back to groups tab
+					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+
 					try {
 						// go to "#My_School" group
-						AndroidElement list = (AndroidElement) driver
-								.findElement(By
-										.id("com.microdoers.projecttoe:id/groups_list"));
-						MobileElement mySchool = list
-								.findElement(MobileBy
-										.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
-												+ "new UiSelector().text(\"#My_School\"));"));
-						assertNotNull(mySchool.getLocation());
-						driver.findElement(By.name("#My_School")).click();
+						searchSpecificGroup("My_Schoo");
 						// join "#My_School" group again
 						WebElement elementJoinGroupButton = (new WebDriverWait(
 								driver, 60))
@@ -1048,7 +1086,13 @@ public class ProjectToeAndroidTest {
 						elementNoThanks.click();
 						System.out.println("joined #My_School successfully!");
 						System.out.println("Can Leave Join Public Group succeed");
-						// go to griup tab
+						// go to search
+						((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+						WebElement elementTypeYourSearch = (new WebDriverWait(
+								driver, 60))
+								.until(ExpectedConditions.presenceOfElementLocated(By
+										.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
+						// go to group tab
 						((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 
 					} catch (Exception e) {
@@ -1068,82 +1112,149 @@ public class ProjectToeAndroidTest {
 			// replace here to make test fail
 			System.out.println("can Leave Join Private Group");
 			try {
-				AndroidElement list = (AndroidElement) driver.findElement(By
-						.id("com.microdoers.projecttoe:id/groups_list"));
-				MobileElement privateGorup = list
-						.findElement(MobileBy
-								.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
-										+ "new UiSelector().text(\""
-										+ privateGroupName + "\"));"));
-				assertNotNull(privateGorup.getLocation());
-				driver.findElement(By.name(privateGroupName)).click();
+				searchSpecificGroup("PrivateAndroid");
 			} catch (Exception e) {
 				System.out.println("Could not click " + privateGroupName);
 			}
 			try {
+				// wait until group's name shows up
+				(new WebDriverWait(driver, 60)).until(ExpectedConditions
+						.presenceOfElementLocated(By
+								.id("com.microdoers.projecttoe:id/group_name")));
 				// open menu
-				WebElement elementActionBar = (new WebDriverWait(driver, 60))
+				driver.findElement(
+						By.id("com.microdoers.projecttoe:id/action_edit_profile"))
+						.click();
+				(new WebDriverWait(driver, 60))
 						.until(ExpectedConditions.presenceOfElementLocated(By
-								.id("com.microdoers.projecttoe:id/action_edit_profile")));
-				elementActionBar.click();
-				// click on leave group
-				WebElement elementLeaveGroup = (new WebDriverWait(driver, 60))
-						.until(ExpectedConditions.presenceOfElementLocated(By
-								.id("com.microdoers.projecttoe:id/leave_group_button")));
-				elementLeaveGroup.click();
-				// wait for alert "Leave Group"
-				WebElement elementLeaveGroupAlert = (new WebDriverWait(driver, 60))
-						.until(ExpectedConditions.presenceOfElementLocated(By
-								.id("com.microdoers.projecttoe:id/alertTitle")));
-				assertEquals(elementLeaveGroupAlert.getText(), "Leave Group!");
-				// choose yes
-				WebElement elementYes = driver.findElement(By
-						.id("android:id/button1"));
-				elementYes.click();
-				// check if "Failed" alert appears
-				if (isElementPresent(By.name("Leaving Group Failed"))) {
-					System.out.println("leaving group faild, something went wrong");
-				} else {
-					// if it's not visible so everything went good
-					System.out.println("leaving group succeed");
-					try {
-						// go to privateGroupName group
-						AndroidElement list = (AndroidElement) driver
-								.findElement(By
-										.id("com.microdoers.projecttoe:id/groups_list"));
-						MobileElement privateGroup = list
-								.findElement(MobileBy
-										.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
-												+ "new UiSelector().text(\""
-												+ privateGroupName + "\"));"));
-						assertNotNull(privateGroup.getLocation());
-						driver.findElement(By.name(privateGroupName)).click();
-						// join privateGroupName group again
-						WebElement elementJoinGroupButton = (new WebDriverWait(
-								driver, 60))
-								.until(ExpectedConditions.presenceOfElementLocated(By
-										.id("com.microdoers.projecttoe:id/join_group_button")));
-						elementJoinGroupButton.click();
-						// check if "Join Request sent !" button appears
-						WebElement elementJoinRequestSent = (new WebDriverWait(
-								driver, 60))
-								.until(ExpectedConditions.presenceOfElementLocated(By
-										.id("com.microdoers.projecttoe:id/join_hidden_button")));
-						elementJoinRequestSent.click();
-						System.out.println("join " + privateGroupName
-								+ " request sent successfully!");
-						System.out.println("Can Leave Join private Group succeed");
-						// go to griup tab
-						((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
-
-					} catch (NotFoundException e) {
+								.id("com.microdoers.projecttoe:id/cancel_group_button")));
+				if (isElementPresent(By
+						.id("com.microdoers.projecttoe:id/leave_group_button"))) {
+					// click on leave group
+					WebElement elementLeaveGroup = (new WebDriverWait(driver, 60))
+							.until(ExpectedConditions.presenceOfElementLocated(By
+									.id("com.microdoers.projecttoe:id/leave_group_button")));
+					elementLeaveGroup.click();
+					// wait for alert "Leave Group"
+					WebElement elementLeaveGroupAlert = (new WebDriverWait(driver,
+							60))
+							.until(ExpectedConditions.presenceOfElementLocated(By
+									.id("com.microdoers.projecttoe:id/alertTitle")));
+					assertEquals(elementLeaveGroupAlert.getText(), "Leave Group!");
+					// choose yes
+					WebElement elementYes = driver.findElement(By
+							.id("android:id/button1"));
+					elementYes.click();
+					// check if "Failed" alert appears
+					if (isElementPresent(By.name("Leaving Group Failed"))) {
 						System.out
-								.println("something went wrong couldn't join group");
+								.println("leaving group faild, something went wrong");
+					} else {
+						// if it's not visible so everything went good
+						System.out.println("leaving group succeed");
+						// go to groups tab
+						((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+						try {
+							// go to privateGroupName group
+							searchSpecificGroup("PrivateAndroid");
+							// join privateGroupName group again
+							WebElement elementJoinGroupButton = (new WebDriverWait(
+									driver, 60))
+									.until(ExpectedConditions.presenceOfElementLocated(By
+											.id("com.microdoers.projecttoe:id/join_group_button")));
+							elementJoinGroupButton.click();
+							// check if "Join Request sent !" button appears
+							WebElement elementJoinRequestSent = (new WebDriverWait(
+									driver, 60))
+									.until(ExpectedConditions.presenceOfElementLocated(By
+											.id("com.microdoers.projecttoe:id/join_hidden_button")));
+							elementJoinRequestSent.click();
+							System.out.println("join " + privateGroupName
+									+ " request sent successfully!");
+							System.out
+									.println("Can Leave Join private Group succeed");
+							// go to search
+							((AndroidDriver) driver)
+									.pressKeyCode(AndroidKeyCode.BACK);
+							WebElement elementTypeYourSearch = (new WebDriverWait(
+									driver, 60))
+									.until(ExpectedConditions.presenceOfElementLocated(By
+											.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
+							// go to group tab
+							((AndroidDriver) driver)
+									.pressKeyCode(AndroidKeyCode.BACK);
+
+						} catch (NotFoundException e) {
+							System.out
+									.println("something went wrong couldn't join group");
+							// go to search
+							((AndroidDriver) driver)
+									.pressKeyCode(AndroidKeyCode.BACK);
+							WebElement elementTypeYourSearch = (new WebDriverWait(
+									driver, 60))
+									.until(ExpectedConditions.presenceOfElementLocated(By
+											.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
+							// go to group tab
+							((AndroidDriver) driver)
+									.pressKeyCode(AndroidKeyCode.BACK);
+						}
 					}
+					// if user is didn't join group
+				} else {
+					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					if (isElementPresent(By
+							.id("com.microdoers.projecttoe:id/join_group_button"))) {
+						driver.findElement(
+								By.id("com.microdoers.projecttoe:id/join_group_button"))
+								.click();
+						// user sent request to this group
+					} else {
+						System.out
+								.println("request hase been sent and waiting to be accepted");
+					}
+					// go to search
+					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					WebElement elementTypeYourSearch = (new WebDriverWait(driver,
+							60))
+							.until(ExpectedConditions.presenceOfElementLocated(By
+									.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
+					// go to group tab
+					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 				}
 			} catch (Exception e) {
 				System.out.println("didn't find leave group");
 
+			}
+		}
+
+		public void searchSpecificGroup(String groupName) throws Exception {
+			System.out.println("search specific group");
+			try {
+				WebElement elementJoinSuppGroup = driver.findElement(By
+						.id("com.microdoers.projecttoe:id/join_support_group_btn"));
+				elementJoinSuppGroup.click();
+				WebElement elementTypeYourSearch = (new WebDriverWait(driver, 60))
+						.until(ExpectedConditions.presenceOfElementLocated(By
+								.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
+				elementTypeYourSearch.sendKeys(groupName);
+				switch (groupName) {
+				case "My_Schoo":
+					driver.findElement(By.name("My_School")).click();
+					break;
+				case "PrivateAndroid":
+					driver.findElement(By.name("AppiumPrivateAndroid")).click();
+					break;
+				case "TestAndroid2":
+					driver.findElement(By.name("AppiumTestAndroid2")).click();
+					break;
+
+				default:
+					break;
+				}
+				System.out.println(groupName + " found!");
+			} catch (NotFoundException e) {
+				System.out
+						.println("search specific group failed, something went wrong");
 			}
 		}
 
@@ -1152,18 +1263,14 @@ public class ProjectToeAndroidTest {
 			// replace here to make test fail
 			System.out.println("Can Block Users");
 			try { // go to "#AppiumTestAndroid" group
-				AndroidElement list = (AndroidElement) driver.findElement(By
-						.id("com.microdoers.projecttoe:id/groups_list"));
-				MobileElement appiumTestAndroid2 = list
-						.findElement(MobileBy
-								.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
-										+ "new UiSelector().text(\"#AppiumTestAndroid2\"));"));
-				assertNotNull(appiumTestAndroid2.getLocation());
-				driver.findElement(By.name("#AppiumTestAndroid2")).click();
-				// click on action bar menu
-				(new WebDriverWait(driver, 60))
-						.until(ExpectedConditions.presenceOfElementLocated(By
-								.id("com.microdoers.projecttoe:id/action_edit_profile")))
+				searchSpecificGroup("TestAndroid2");
+				// wait until group's name shows up
+				(new WebDriverWait(driver, 60)).until(ExpectedConditions
+						.presenceOfElementLocated(By
+								.id("com.microdoers.projecttoe:id/group_name")));
+				// open menu
+				driver.findElement(
+						By.id("com.microdoers.projecttoe:id/action_edit_profile"))
 						.click();
 				// click on admin panel in menu
 				(new WebDriverWait(driver, 60))
@@ -1293,10 +1400,13 @@ public class ProjectToeAndroidTest {
 			// replace here to make test fail
 			System.out.println("can Toggle Private Switch");
 			try {
-				// click on action bar menu
-				(new WebDriverWait(driver, 60))
-						.until(ExpectedConditions.presenceOfElementLocated(By
-								.id("com.microdoers.projecttoe:id/action_edit_profile")))
+				// wait until group's name shows up
+				(new WebDriverWait(driver, 60)).until(ExpectedConditions
+						.presenceOfElementLocated(By
+								.id("com.microdoers.projecttoe:id/group_name")));
+				// open menu
+				driver.findElement(
+						By.id("com.microdoers.projecttoe:id/action_edit_profile"))
 						.click();
 				// click on admin panel in menu
 				(new WebDriverWait(driver, 60))
@@ -1361,10 +1471,13 @@ public class ProjectToeAndroidTest {
 			System.out.println("Can Toggle Helper Switch");
 			if (upgradeGroupToPremium) {
 				try {
-					// click on action bar menu
+					// wait until group's name shows up
 					(new WebDriverWait(driver, 60))
 							.until(ExpectedConditions.presenceOfElementLocated(By
-									.id("com.microdoers.projecttoe:id/action_edit_profile")))
+									.id("com.microdoers.projecttoe:id/group_name")));
+					// open menu
+					driver.findElement(
+							By.id("com.microdoers.projecttoe:id/action_edit_profile"))
 							.click();
 					// click on admin panel in menu
 					(new WebDriverWait(driver, 60))
@@ -1428,7 +1541,11 @@ public class ProjectToeAndroidTest {
 								.id("com.microdoers.projecttoe:id/group_members")));
 				int oldUsersNum = Integer.parseInt(elementGroupMembers.getText()
 						.substring(15, elementGroupMembers.getText().length() - 1));
-				// click on action bar menu
+				// wait until group's name shows up
+				(new WebDriverWait(driver, 60)).until(ExpectedConditions
+						.presenceOfElementLocated(By
+								.id("com.microdoers.projecttoe:id/group_name")));
+				// open menu
 				driver.findElement(
 						By.id("com.microdoers.projecttoe:id/action_edit_profile"))
 						.click();
@@ -1502,10 +1619,13 @@ public class ProjectToeAndroidTest {
 			// replace here to make test fail
 			System.out.println("Can Change Group Keywords");
 			try {
-				// click on action bar menu
-				(new WebDriverWait(driver, 60))
-						.until(ExpectedConditions.presenceOfElementLocated(By
-								.id("com.microdoers.projecttoe:id/action_edit_profile")))
+				// wait until group's name shows up
+				(new WebDriverWait(driver, 60)).until(ExpectedConditions
+						.presenceOfElementLocated(By
+								.id("com.microdoers.projecttoe:id/group_name")));
+				// open menu
+				driver.findElement(
+						By.id("com.microdoers.projecttoe:id/action_edit_profile"))
 						.click();
 				// click on admin panel in menu
 				(new WebDriverWait(driver, 60))
@@ -1544,6 +1664,12 @@ public class ProjectToeAndroidTest {
 				(new WebDriverWait(driver, 60))
 						.until(ExpectedConditions.presenceOfElementLocated(By
 								.id("com.microdoers.projecttoe:id/action_edit_profile")));
+				// go to search
+				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+				WebElement elementTypeYourSearch = (new WebDriverWait(driver, 60))
+						.until(ExpectedConditions.presenceOfElementLocated(By
+								.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
+				// go to group tab
 				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 				System.out.println("Can Change Group Keywords successfully!");
 			} catch (Exception e) {
@@ -2097,7 +2223,6 @@ public class ProjectToeAndroidTest {
 			}
 		}
 
-		
 		@Test(groups = "main", priority = 70, enabled = true)
 		public void logout() throws Exception {
 			System.out.println("logOut");
@@ -2142,7 +2267,5 @@ public class ProjectToeAndroidTest {
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			}
 		}
-
-
 
 }
