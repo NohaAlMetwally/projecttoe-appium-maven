@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="1" name="TestSuite" time="337.204" errors="0" skipped="0">
+<testsuite tests="40" failures="1" name="TestSuite" time="21.042" errors="0" skipped="39">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_20\jre\bin"/>
@@ -20,7 +20,7 @@
     <property name="basedir" value="C:\Users\Noha\git\projecttoeAppiumMaven"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_20\jre\lib\endorsed"/>
     <property name="os.arch" value="amd64"/>
-    <property name="surefire.real.class.path" value="C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefirebooter4366319340062010206.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefirebooter3419739946655418404.jar"/>
     <property name="java.io.tmpdir" value="C:\Users\Noha\AppData\Local\Temp\"/>
     <property name="line.separator" value="
 "/>
@@ -44,7 +44,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_20\jre"/>
-    <property name="sun.java.command" value="C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefirebooter4366319340062010206.jar C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefire3046848490832201744tmp C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefire171778829298250476tmp"/>
+    <property name="sun.java.command" value="C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefirebooter3419739946655418404.jar C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefire7561073245399331700tmp C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefire1857933276642046679tmp"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -61,25 +61,16 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="signIn" time="17.824"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="logIn" time="14.182"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="goToNotificationsTab" time="4.828"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="loadNotifications" time="0.463"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="browseFromNotifications" time="274.629"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="afterClass" time="274.699">
-    <failure message="
-Command duration or timeout: 19 milliseconds
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="setUp" time="0">
+    <failure message="A new session could not be created. (Original error: Could not find adb. Please set the ANDROID_HOME environment variable with the Android SDK root directory path.) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 9.45 seconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;Noha-PC&apos;, ip: &apos;192.168.1.7&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_20&apos;
+Driver info: io.appium.java_client.android.AndroidDriver" type="org.openqa.selenium.SessionNotCreatedException">org.openqa.selenium.SessionNotCreatedException: A new session could not be created. (Original error: Could not find adb. Please set the ANDROID_HOME environment variable with the Android SDK root directory path.) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 9.45 seconds
 Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
 System info: host: &apos;Noha-PC&apos;, ip: &apos;192.168.1.7&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_20&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities [{app=/Users/Noha/apks/ProjectToe.apk, networkConnectionEnabled=true, warnings={}, databaseEnabled=false, deviceName=410018bdf23ea11f, platform=LINUX, desired={app=/Users/Noha/apks/ProjectToe.apk, platformVersion=6.0, platformName=Android, deviceName=Galaxy Note 4}, platformVersion=6.0.1, webStorageEnabled=false, locationContextEnabled=false, browserName=Android, takesScreenshot=true, javascriptEnabled=true, platformName=Android}]
-Session ID: af5c6e56-3422-45fc-a2ee-398383a64b6b" type="org.openqa.selenium.remote.SessionNotFoundException">org.openqa.selenium.remote.SessionNotFoundException: 
-Command duration or timeout: 19 milliseconds
-Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
-System info: host: &apos;Noha-PC&apos;, ip: &apos;192.168.1.7&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_20&apos;
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities [{app=/Users/Noha/apks/ProjectToe.apk, networkConnectionEnabled=true, warnings={}, databaseEnabled=false, deviceName=410018bdf23ea11f, platform=LINUX, desired={app=/Users/Noha/apks/ProjectToe.apk, platformVersion=6.0, platformName=Android, deviceName=Galaxy Note 4}, platformVersion=6.0.1, webStorageEnabled=false, locationContextEnabled=false, browserName=Android, takesScreenshot=true, javascriptEnabled=true, platformName=Android}]
-Session ID: af5c6e56-3422-45fc-a2ee-398383a64b6b
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -88,9 +79,139 @@ Session ID: af5c6e56-3422-45fc-a2ee-398383a64b6b
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
 	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:51)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:268)
-	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:526)
-	at com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest.afterClass(ProjectToeAndroidTest.java:121)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:249)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:144)
+	at io.appium.java_client.DefaultGenericMobileDriver.&lt;init&gt;(DefaultGenericMobileDriver.java:47)
+	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:114)
+	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:132)
+	at io.appium.java_client.android.AndroidDriver.&lt;init&gt;(AndroidDriver.java:97)
+	at com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest.setUp(ProjectToeAndroidTest.java:107)
 </failure>
+    <system-out>@HL
+@HL-------------------------------------------------------
+@HL T E S T S
+@HL-------------------------------------------------------
+@SLRunning TestSuite
+</system-out>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="signIn" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="forgotPasswordInValidEmail" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="forgotPasswordValidEmail" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="loginWithInvalidCredentials" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="logIn" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="makePost" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="hugPost" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="commentPost" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="upgradeUserToPremium" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="loadGroups" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="searchGroup" time="0.004">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="addGroup" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="ubgradeGroupToPremium" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="makeGroupHelper" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="checkGroupDetails" time="0.021">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canWriteReview" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canBoostGroup" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canDowngradeGroup" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canLeaveJoinPublicGroup" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canLeaveJoinPrivateGroup" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canBlockUnblockUsers" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canBroadcastMessage" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canAddRemoveHelper" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canTogglePrivateSwitch" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canToggleHelperSwitch" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canAddPending" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canChangeGroupKeywords" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="goToRequestsTab" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="loadRequests" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="goToChatTab" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="loadMessages" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="startPrivateChat" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="startGroupChat" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="goToNotificationsTab" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="loadNotifications" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="browseFromNotifications" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="EditProfile" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="logout" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="signUpValidValues" time="0">
+    <skipped/>
   </testcase>
 </testsuite>

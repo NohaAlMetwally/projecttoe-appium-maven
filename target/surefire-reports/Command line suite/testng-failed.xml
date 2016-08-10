@@ -5,9 +5,47 @@
     <classes>
       <class name="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest">
         <methods>
-          <include name="setUp"/>
-          <include name="afterClass"/>
+          <include name="searchGroup"/>
+          <include name="hugPost"/>
+          <include name="canAddPending"/>
+          <include name="canBlockUnblockUsers"/>
           <include name="signIn"/>
+          <include name="canBoostGroup"/>
+          <include name="upgradeUserToPremium"/>
+          <include name="canDowngradeGroup"/>
+          <include name="checkGroupDetails"/>
+          <include name="canAddRemoveHelper"/>
+          <include name="forgotPasswordInValidEmail"/>
+          <include name="canBroadcastMessage"/>
+          <include name="loginWithInvalidCredentials"/>
+          <include name="canToggleHelperSwitch"/>
+          <include name="canTogglePrivateSwitch"/>
+          <include name="loadMessages"/>
+          <include name="browseFromNotifications"/>
+          <include name="canWriteReview"/>
+          <include name="signUpValidValues"/>
+          <include name="EditProfile"/>
+          <include name="goToChatTab"/>
+          <include name="logIn"/>
+          <include name="setUp"/>
+          <include name="loadRequests"/>
+          <include name="addGroup"/>
+          <include name="makeGroupHelper"/>
+          <include name="afterClass"/>
+          <include name="forgotPasswordValidEmail"/>
+          <include name="goToRequestsTab"/>
+          <include name="canLeaveJoinPublicGroup"/>
+          <include name="goToNotificationsTab"/>
+          <include name="logout"/>
+          <include name="loadGroups"/>
+          <include name="canChangeGroupKeywords"/>
+          <include name="startPrivateChat"/>
+          <include name="canLeaveJoinPrivateGroup"/>
+          <include name="startGroupChat"/>
+          <include name="loadNotifications"/>
+          <include name="makePost"/>
+          <include name="ubgradeGroupToPremium"/>
+          <include name="commentPost"/>
         </methods>
       </class> <!-- com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest -->
     </classes>

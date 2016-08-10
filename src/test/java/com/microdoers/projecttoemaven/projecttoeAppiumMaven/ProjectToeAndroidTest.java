@@ -70,7 +70,7 @@ public class ProjectToeAndroidTest {
 	private String joinSupportGroupTutPage = "Join a Support Group";
 	private String meetOthersTutPage = "Meet Others";
 	private String postContent = "Hello Appium Android";
-	private String greetingsAppium = "Graatings from Appium!";
+	private String greetingsAppium = "Greetings from Appium!";
 	private String terms = "Terms and conditions";
 	private String next = "NEXT";
 	private String done = "DONE";
@@ -100,9 +100,9 @@ public class ProjectToeAndroidTest {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("app", "/Users/Noha/apks/ProjectToe.apk");
 		capabilities.setCapability("platformName", "Android");
-		capabilities.setCapability("platformVersion", "6.0");
+		capabilities.setCapability("platformVersion", "5.0");
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,
-				"Galaxy Note 4");
+				"Android Emulator");
 
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
 				capabilities);
