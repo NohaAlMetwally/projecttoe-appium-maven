@@ -128,30 +128,32 @@ public class ProjectToeAndroidTest {
 
 	@Test(groups = { "main" }, priority = 1)
 	public void signIn() throws Exception {
-
-		System.out.println("signIn");
-		WebElement element = (new WebDriverWait(driver, 60))
-				.until(ExpectedConditions.presenceOfElementLocated(By
-						.id("tutorial_signin_button")));
 		try {
-			swipeThroughFrames();
-			element.click();
-		} catch (NoSuchElementException e) {
-			element.click();
+			System.out.println("signIn");
+			WebElement element = (new WebDriverWait(driver, 60))
+					.until(ExpectedConditions.presenceOfElementLocated(By
+							.id("tutorial_signin_button")));
+			try {
+				swipeThroughFrames();
+				element.click();
+			} catch (NoSuchElementException e) {
+				element.click();
+			}
+		} catch (NotFoundException e) {
+			System.out.println("coudn't find sign in button");
 		}
-
 	}
 
 	public void swipeThroughFrames() {
 		if (isElementPresent(By.name(projectToeTutPage))) {
 			driver.findElement(By.name(projectToeTutPage)).click();
 			swipeLeft();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
 			if (isElementPresent(By.name(createProfileTutPage))) {
 				driver.findElement(By.name(createProfileTutPage)).click();
 				swipeLeft();
-				driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+				driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
 				if (isElementPresent(By.name(joinSupportGroupTutPage))) {
 					driver.findElement(By.name(joinSupportGroupTutPage))
@@ -198,7 +200,7 @@ public class ProjectToeAndroidTest {
 							.id("com.microdoers.projecttoe:id/forgotPassword_email")));
 
 			// no such email in DB
-			elementEtEmail.sendKeys("test212@gmail.com");
+			elementEtEmail.sendKeys("212@gmail.com");
 			WebElement elementBSubmit = driver
 					.findElement(By
 							.id("com.microdoers.projecttoe:id/forgotPassword_submit_button"));
@@ -229,9 +231,9 @@ public class ProjectToeAndroidTest {
 	public void forgotPasswordValidEmail() throws MalformedURLException {
 		System.out.println("forgot Password Valid Email");
 		try {
-			WebElement elementEtEmail = driver.findElement(By
-					.id("com.microdoers.projecttoe:id/forgotPassword_email"));
-
+			WebElement elementEtEmail = (new WebDriverWait(driver, 60))
+					.until(ExpectedConditions.presenceOfElementLocated(By
+							.id("com.microdoers.projecttoe:id/forgotPassword_email")));
 			elementEtEmail.sendKeys("noha.elmetwally@microdoers.com");
 			WebElement elementBSubmit = driver
 					.findElement(By
@@ -369,13 +371,16 @@ public class ProjectToeAndroidTest {
 							.xpath("//android.widget.ImageView[@resource-id='com.microdoers.projecttoe:id/post_hug_img']"));
 			WebElement elementHug = firstElementHug.get(0);
 			elementHug.click();
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			int currentHugsNum = Integer.parseInt(elementHugsNum.getText());
+			//System.out.println("prev" + prevHugsNum);
+			//System.out.println("current" + currentHugsNum);
 			if (prevHugsNum < currentHugsNum) {
-				System.out.println("Hug Post Successfully!");
+				//System.out.println("Hug Post Successfully!");
 			} else if (prevHugsNum > currentHugsNum) {
-				System.out.println("Unhug Post Successfully!");
+				//System.out.println("Unhug Post Successfully!");
 			} else {
-				System.out.println("Hug Post Failed!");
+				//System.out.println("Hug Post Failed!");
 			}
 		} catch (Exception e) {
 			System.out.println("Couldn't Hug Post, something went wrong");
@@ -526,7 +531,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "groupsTab", priority = 22, enabled = true)
+	@Test(groups = "groupsTab", priority = 22, enabled = false)
 	public void searchGroup() throws Exception {
 		// replace here to make test fail
 		System.out.println("search group");
@@ -575,17 +580,17 @@ public class ProjectToeAndroidTest {
 			groupName = groupName + dateNow;
 			elementGroupName.sendKeys(groupName);
 			groupName = groupName.replace(' ', '_');
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			// ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 			// group description edit text
 			WebElement elementGroupDesc = driver.findElement(By
 					.id("com.microdoers.projecttoe:id/group_description"));
 			elementGroupDesc.sendKeys(groupDesc);
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			// ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 			// group keywords edit text
 			WebElement elementGroupKeyWords = driver.findElement(By
 					.id("com.microdoers.projecttoe:id/group_keywords"));
 			elementGroupKeyWords.sendKeys(groupKeyword);
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			// ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 			// click add button
 			try {
 				// It's not always visible on the screen so we scroll to it
@@ -621,7 +626,6 @@ public class ProjectToeAndroidTest {
 							.until(ExpectedConditions.presenceOfElementLocated(By
 									.id("com.microdoers.projecttoe:id/pre_group_view_cancel")));
 					elementCancelButton.click();
-					newGroupAdded = true;
 					System.out.println("add group successfully!");
 				}
 			} else {
@@ -699,130 +703,139 @@ public class ProjectToeAndroidTest {
 	public void checkGroupDetails() throws Exception {
 		// replace here to make test fail
 		System.out.println("check group details");
-		// check for reviews
-		try {
-			if (isElementPresent(By
-					.id("com.microdoers.projecttoe:id/number_of_reviews_txt"))) {
-				WebElement elementReviews = (new WebDriverWait(driver, 60))
-						.until(ExpectedConditions.presenceOfElementLocated(By
-								.id("com.microdoers.projecttoe:id/number_of_reviews_txt")));
-				int reviewsNum = Integer.parseInt(elementReviews.getText()
-						.substring(1, elementReviews.getText().length() - 1));
-				if (reviewsNum > 0) {
-					System.out.println("#" + groupName + " has " + reviewsNum
-							+ " reviews");
+		if (newGroupAdded) {
+			// check for reviews
+			try {
+				if (isElementPresent(By
+						.id("com.microdoers.projecttoe:id/number_of_reviews_txt"))) {
+					WebElement elementReviews = (new WebDriverWait(driver, 60))
+							.until(ExpectedConditions.presenceOfElementLocated(By
+									.id("com.microdoers.projecttoe:id/number_of_reviews_txt")));
+					int reviewsNum = Integer
+							.parseInt(elementReviews.getText().substring(1,
+									elementReviews.getText().length() - 1));
+					if (reviewsNum > 0) {
+						System.out.println("#" + groupName + " has "
+								+ reviewsNum + " reviews");
+					}
+				} else {
+					if (isElementPresent(By.name("Write Review")))
+						System.out.println(groupName + " doesn't have reviews");
 				}
-			} else {
-				if (isElementPresent(By.name("Write Review")))
-					System.out.println(groupName + " doesn't have reviews");
+			} catch (Exception e) {
+				System.out.println("Couldn't find group reviews");
 			}
-		} catch (Exception e) {
-			System.out.println("Couldn't find group reviews");
-		}
-		// check for private icone, this group is private
-		try {
-			// Maybe It's not visible on the screen so we scroll to it first
-			if (!isElementPresent(By
-					.id("com.microdoers.projecttoe:id/private_group_lock"))) {
-				driver.scrollTo(groupDesc);
-			}
-			WebElement elementlockedgroup = driver.findElement(By
-					.id("com.microdoers.projecttoe:id/private_group_lock"));
-			System.out.println("group lock found this group is private");
-
-		} catch (NotFoundException e) {
-			System.out.println("Couldn't find lock icon, something went wrong");
-		}
-		if (upgradeGroupToPremium) {
-			// check for helper icone, this group is helper try
+			// check for private icone, this group is private
 			try {
 				// Maybe It's not visible on the screen so we scroll to it first
 				if (!isElementPresent(By
-						.id("com.microdoers.projecttoe:id/helper_mode_icon"))) {
-					System.out
-							.println("Couldn't find helper icon, something went wrong");
-				} else {
-					System.out.println("group helper mode found");
+						.id("com.microdoers.projecttoe:id/private_group_lock"))) {
+					driver.scrollTo(groupDesc);
 				}
+				WebElement elementlockedgroup = driver.findElement(By
+						.id("com.microdoers.projecttoe:id/private_group_lock"));
+				System.out.println("group lock found this group is private");
 
 			} catch (NotFoundException e) {
 				System.out
-						.println("Couldn't find helper icon, something went wrong");
+						.println("Couldn't find lock icon, something went wrong");
 			}
-			// check for premium icone, this group is premium
+			if (upgradeGroupToPremium) {
+				// check for helper icone, this group is helper try
+				try {
+					// Maybe It's not visible on the screen so we scroll to it
+					// first
+					if (!isElementPresent(By
+							.id("com.microdoers.projecttoe:id/helper_mode_icon"))) {
+						System.out
+								.println("Couldn't find helper icon, something went wrong");
+					} else {
+						System.out.println("group helper mode found");
+					}
 
-			if (!isElementPresent(By
-					.id("com.microdoers.projecttoe:id/premium_icon"))) {
+				} catch (NotFoundException e) {
+					System.out
+							.println("Couldn't find helper icon, something went wrong");
+				}
+				// check for premium icone, this group is premium
+
+				if (!isElementPresent(By
+						.id("com.microdoers.projecttoe:id/premium_icon"))) {
+					System.out
+							.println("Couldn't find premium icon, something went wrong");
+				} else {
+					System.out.println("group is premium found");
+				}
+
+			}
+			// check for group members
+			try {
+				// Maybe It's not visible on the screen so we scroll to it first
+				if (!isElementPresent(By
+						.id("com.microdoers.projecttoe:id/group_members"))) {
+					driver.scrollTo("GROUP MEMBERS ");
+				}
+				WebElement elementGroupMembers = driver.findElement(By
+						.id("com.microdoers.projecttoe:id/group_members"));
+				System.out.println("group members found");
+				int groupMembersNum = Integer.parseInt(elementGroupMembers
+						.getText().substring(15,
+								elementGroupMembers.getText().length() - 1));
+				if (groupMembersNum > 0) {
+					System.out.println("group members count is "
+							+ groupMembersNum);
+				} else {
+
+					System.out
+							.println("something went wrong, group has no members");
+				}
+			} catch (NotFoundException e) {
 				System.out
-						.println("Couldn't find premium icon, something went wrong");
-			} else {
-				System.out.println("group is premium found");
+						.println("Couldn't find group members, something went wrong");
 			}
-
-		}
-		// check for group members
-		try {
-			// Maybe It's not visible on the screen so we scroll to it first
-			if (!isElementPresent(By
-					.id("com.microdoers.projecttoe:id/group_members"))) {
-				driver.scrollTo("GROUP MEMBERS ");
-			}
-			WebElement elementGroupMembers = driver.findElement(By
-					.id("com.microdoers.projecttoe:id/group_members"));
-			System.out.println("group members found");
-			int groupMembersNum = Integer.parseInt(elementGroupMembers
-					.getText().substring(15,
-							elementGroupMembers.getText().length() - 1));
-			if (groupMembersNum > 0) {
-				System.out.println("group members count is " + groupMembersNum);
-			} else {
-
+			// check for group alerts
+			// Someone joins
+			try {
+				// scroll to group posts alert to make sure all three alerts are
+				// visible in the screen
+				driver.scrollTo("Group Posts");
+				if (!isElementPresent(By
+						.id("com.microdoers.projecttoe:id/alert_broadcast_message_bttn")))
+					System.out.println("found Someone join alert");
+			} catch (NotFoundException e) {
 				System.out
-						.println("something went wrong, group has no members");
+						.println("Couldn't find Someone join alert, something went wrong");
 			}
-		} catch (NotFoundException e) {
+			// Someone posts
+			try {
+				if (isElementPresent(By
+						.id("com.microdoers.projecttoe:id/alert_someone_posts_bttn")))
+					System.out.println("found Someone posts");
+			} catch (NotFoundException e) {
+				System.out
+						.println("Couldn't find Someone posts, something went wrong");
+			}
+			// Group Posts
+			try {
+				if (isElementPresent(By
+						.id("com.microdoers.projecttoe:id/alert_broadcast_message_bttn")))
+					System.out.println("found Group Posts");
+			} catch (NotFoundException e) {
+				System.out
+						.println("Couldn't find Group Posts, something went wrong");
+			}
+			// check for view group wall button
+			try {
+				if (isElementPresent(By
+						.id("com.microdoers.projecttoe:id/post_on_group_button")))
+					System.out.println("found View Group Wall Button");
+			} catch (NotFoundException e) {
+				System.out
+						.println("Couldn't find Group Posts, something went wrong");
+			}
+		} else {
 			System.out
-					.println("Couldn't find group members, something went wrong");
-		}
-		// check for group alerts
-		// Someone joins
-		try {
-			// scroll to group posts alert to make sure all three alerts are
-			// visible in the screen
-			driver.scrollTo("Group Posts");
-			if (!isElementPresent(By
-					.id("com.microdoers.projecttoe:id/alert_broadcast_message_bttn")))
-				System.out.println("found Someone join alert");
-		} catch (NotFoundException e) {
-			System.out
-					.println("Couldn't find Someone join alert, something went wrong");
-		}
-		// Someone posts
-		try {
-			if (isElementPresent(By
-					.id("com.microdoers.projecttoe:id/alert_someone_posts_bttn")))
-				System.out.println("found Someone posts");
-		} catch (NotFoundException e) {
-			System.out
-					.println("Couldn't find Someone posts, something went wrong");
-		}
-		// Group Posts
-		try {
-			if (isElementPresent(By
-					.id("com.microdoers.projecttoe:id/alert_broadcast_message_bttn")))
-				System.out.println("found Group Posts");
-		} catch (NotFoundException e) {
-			System.out
-					.println("Couldn't find Group Posts, something went wrong");
-		}
-		// check for view group wall button
-		try {
-			if (isElementPresent(By
-					.id("com.microdoers.projecttoe:id/post_on_group_button")))
-				System.out.println("found View Group Wall Button");
-		} catch (NotFoundException e) {
-			System.out
-					.println("Couldn't find Group Posts, something went wrong");
+					.println("Couldn't check details, no new group has been added");
 		}
 		// ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 		System.out.println("Group Details Successful!");
@@ -832,12 +845,12 @@ public class ProjectToeAndroidTest {
 	@Test(groups = "groupsTab", priority = 27, enabled = true)
 	public void canWriteReview() throws Exception {
 		System.out.println("can Write Review");
+		System.out.println("new group" + newGroupAdded);
+		// check to see if we just added a group
 		if (newGroupAdded) {
 			try {
-				// check to see if we just added a group
-				// if no group added choose another group this user is joining
-				// check to see if this group has no reviews
-				driver.scrollToExact(groupName);
+				driver.scrollTo("Write Review");
+
 				if (isElementPresent(By
 						.id("com.microdoers.projecttoe:id/write_review_button"))) {
 					System.out.println("this group has no reviews");
@@ -919,7 +932,7 @@ public class ProjectToeAndroidTest {
 
 	}
 
-	@Test(groups = "groupsTabNonadmin", priority = 28, enabled = true)
+	@Test(groups = "groupsTabNonadmin", priority = 28, enabled = false)
 	public void canBoostGroup() throws Exception {
 		// replace here to make test fail
 		System.out.println("Can Boost Group");
@@ -1252,14 +1265,22 @@ public class ProjectToeAndroidTest {
 			switch (groupName) {
 			case "My_Schoo":
 				driver.findElement(By.name("My_School")).click();
+				if(isElementPresent(By.id("com.microdoers.projecttoe:id/autoCompleteSearch"))){
+					driver.findElement(By.name("My_School")).click();
+				}
 				break;
 			case "PrivateAndroid":
 				driver.findElement(By.name("AppiumPrivateAndroid")).click();
+				if(isElementPresent(By.id("com.microdoers.projecttoe:id/autoCompleteSearch"))){
+					driver.findElement(By.name("AppiumPrivateAndroid")).click();
+				}
 				break;
 			case "TestAndroid2":
 				driver.findElement(By.name("AppiumTestAndroid2")).click();
+				if(isElementPresent(By.id("com.microdoers.projecttoe:id/autoCompleteSearch"))){
+					driver.findElement(By.name("AppiumTestAndroid2")).click();
+				}
 				break;
-
 			default:
 				break;
 			}
@@ -1939,7 +1960,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "notificationsTab", priority = 52, enabled = true)
+	@Test(groups = "notificationsTab", priority = 52, enabled = false)
 	public void browseFromNotifications() throws Exception {
 		// replace here to make test fail
 		System.out.println("browseFromNotifications");
@@ -1962,11 +1983,11 @@ public class ProjectToeAndroidTest {
 							.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
 									+ "new UiSelector().text(\""
 									+ searchTerm
-									+ "\"));"));			
-			String rowString = ((WebElement) element).getAttribute("text");			
-			System.out.println("rowString " + rowString);			
-			String[] words = rowString.split("\\s");			
-		    element.click();
+									+ "\"));"));
+			String rowString = ((WebElement) element).getAttribute("text");
+			System.out.println("rowString " + rowString);
+			String[] words = rowString.split("\\s");
+			element.click();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			List<WebElement> elementTitle;
 			switch (searchTerm) {
@@ -2114,7 +2135,7 @@ public class ProjectToeAndroidTest {
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/join_projecttoe_tell_your_story_edittext")));
 			elementNewUserTellurStory.sendKeys("I'm Appium!");
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			// ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 			driver.findElement(
 					By.id("com.microdoers.projecttoe:id/action_go_next"))
 					.click();
@@ -2153,7 +2174,7 @@ public class ProjectToeAndroidTest {
 
 	}
 
-	@Test(groups = "myProfile", priority = 69, enabled = true)
+	@Test(groups = "myProfile", priority = 69, enabled = false)
 	public void EditProfile() throws Exception {
 		// replace here to make test fail
 		System.out.println("Edit Profile");
@@ -2231,9 +2252,18 @@ public class ProjectToeAndroidTest {
 	@Test(groups = "main", priority = 70, enabled = true)
 	public void logout() throws Exception {
 		System.out.println("logOut");
-
-		WebElement elementLogout = driver.findElement(By
-				.id("com.microdoers.projecttoe:id/logout_button"));
+		// click on Profile
+		WebElement elementProfileIcon = driver.findElement(By
+				.id("com.microdoers.projecttoe:id/action_profile"));
+		elementProfileIcon.click();
+		(new WebDriverWait(driver, 60)).until(ExpectedConditions
+				.presenceOfElementLocated(By
+						.id("com.microdoers.projecttoe:id/admin_badge")));
+		// click on settings
+		driver.scrollTo("Settings").click();
+		WebElement elementLogout = (new WebDriverWait(driver, 60))
+				.until(ExpectedConditions.presenceOfElementLocated(By
+				.id("com.microdoers.projecttoe:id/logout_button")));
 		elementLogout.click();
 
 		WebElement elementLogoutMsg = (new WebDriverWait(driver, 60))
