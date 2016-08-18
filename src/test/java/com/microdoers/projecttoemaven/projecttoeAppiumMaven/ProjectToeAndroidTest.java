@@ -98,17 +98,21 @@ public class ProjectToeAndroidTest {
 		// File app = new File(TARGET_APP_PATH);
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("app", "http://127.0.0.1:8080/job/ProjectToeAndroid/lastSuccessfulBuild/artifact/com.microdoers.projecttoe/build/outputs/apk/com.microdoers.projecttoe-versionDevelopment-debug.apk");
+		capabilities
+				.setCapability(
+						"app",
+						"http://127.0.0.1:8080/job/ProjectToeAndroid/lastSuccessfulBuild/artifact/com.microdoers.projecttoe/build/outputs/apk/com.microdoers.projecttoe-versionDevelopment-debug.apk");
 
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("platformVersion", "5.1");
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,
 				"Nexus_7_API_22_2");
 
-		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
+		driver = new AndroidDriver(new URL("http://127.0.0.1:5000/wd/hub"),
 				capabilities);
 
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+		Thread.sleep(10000);
 
 		System.out.println("setup done");
 	}
@@ -373,14 +377,14 @@ public class ProjectToeAndroidTest {
 			elementHug.click();
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			int currentHugsNum = Integer.parseInt(elementHugsNum.getText());
-			//System.out.println("prev" + prevHugsNum);
-			//System.out.println("current" + currentHugsNum);
+			// System.out.println("prev" + prevHugsNum);
+			// System.out.println("current" + currentHugsNum);
 			if (prevHugsNum < currentHugsNum) {
-				//System.out.println("Hug Post Successfully!");
+				// System.out.println("Hug Post Successfully!");
 			} else if (prevHugsNum > currentHugsNum) {
-				//System.out.println("Unhug Post Successfully!");
+				// System.out.println("Unhug Post Successfully!");
 			} else {
-				//System.out.println("Hug Post Failed!");
+				// System.out.println("Hug Post Failed!");
 			}
 		} catch (Exception e) {
 			System.out.println("Couldn't Hug Post, something went wrong");
@@ -1265,19 +1269,22 @@ public class ProjectToeAndroidTest {
 			switch (groupName) {
 			case "My_Schoo":
 				driver.findElement(By.name("My_School")).click();
-				if(isElementPresent(By.id("com.microdoers.projecttoe:id/autoCompleteSearch"))){
+				if (isElementPresent(By
+						.id("com.microdoers.projecttoe:id/autoCompleteSearch"))) {
 					driver.findElement(By.name("My_School")).click();
 				}
 				break;
 			case "PrivateAndroid":
 				driver.findElement(By.name("AppiumPrivateAndroid")).click();
-				if(isElementPresent(By.id("com.microdoers.projecttoe:id/autoCompleteSearch"))){
+				if (isElementPresent(By
+						.id("com.microdoers.projecttoe:id/autoCompleteSearch"))) {
 					driver.findElement(By.name("AppiumPrivateAndroid")).click();
 				}
 				break;
 			case "TestAndroid2":
 				driver.findElement(By.name("AppiumTestAndroid2")).click();
-				if(isElementPresent(By.id("com.microdoers.projecttoe:id/autoCompleteSearch"))){
+				if (isElementPresent(By
+						.id("com.microdoers.projecttoe:id/autoCompleteSearch"))) {
 					driver.findElement(By.name("AppiumTestAndroid2")).click();
 				}
 				break;
@@ -2263,7 +2270,7 @@ public class ProjectToeAndroidTest {
 		driver.scrollTo("Settings").click();
 		WebElement elementLogout = (new WebDriverWait(driver, 60))
 				.until(ExpectedConditions.presenceOfElementLocated(By
-				.id("com.microdoers.projecttoe:id/logout_button")));
+						.id("com.microdoers.projecttoe:id/logout_button")));
 		elementLogout.click();
 
 		WebElement elementLogoutMsg = (new WebDriverWait(driver, 60))
