@@ -98,7 +98,7 @@ public class ProjectToeAndroidTest {
 		// File app = new File(TARGET_APP_PATH);
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("app", "/Users/Shared/Jenkins/Home/jobs/ProjectToeAndroid/builds/7/archive/com.microdoers.projecttoe/build/outputs/apk/com.microdoers.projecttoe-versionDevelopment-debug.apk");
+		capabilities.setCapability("app", "http://127.0.0.1:8080/job/ProjectToeAndroid/lastSuccessfulBuild/artifact/com.microdoers.projecttoe/build/outputs/apk/com.microdoers.projecttoe-versionDevelopment-debug.apk");
 
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("platformVersion", "5.1");
