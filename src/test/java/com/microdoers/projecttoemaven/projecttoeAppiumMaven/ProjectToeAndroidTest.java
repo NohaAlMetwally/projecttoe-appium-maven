@@ -98,12 +98,12 @@ public class ProjectToeAndroidTest {
 		// File app = new File(TARGET_APP_PATH);
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("app", 
-				"/Users/Shared/Jenkins/Home/jobs/ProjectToeAndroid/workspace/com.microdoers.projecttoe/build/outputs/apk/com.microdoers.projecttoe-versionDevelopment-debug.apk");
+		capabilities.setCapability("app", "/Users/Shared/Jenkins/Home/jobs/ProjectToeAndroid/builds/7/archive/com.microdoers.projecttoe/build/outputs/apk/com.microdoers.projecttoe-versionDevelopment-debug.apk");
+
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("platformVersion", "5.1");
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,
-				"Nexus_5_API_22");
+				"Nexus_7_API_22_2");
 
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
 				capabilities);
