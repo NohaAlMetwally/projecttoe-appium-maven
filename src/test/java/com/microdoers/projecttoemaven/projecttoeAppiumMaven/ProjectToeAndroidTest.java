@@ -133,6 +133,7 @@ public class ProjectToeAndroidTest {
 	@Test(groups = { "main" }, priority = 1)
 	public void signIn() throws Exception {
 		try {
+			startTestCase("makePost");
 			System.out.println("signIn");
 			WebElement element = (new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
@@ -614,6 +615,7 @@ public class ProjectToeAndroidTest {
 			} catch (NotFoundException e) {
 				System.out.println("Could not click Add");
 			}
+			driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
 			// check if creating group failed and dialog shows up
 			if (isElementPresent(By.name("Create group Failed"))) {
 				driver.findElement(By.id("android:id/button1")).click();
