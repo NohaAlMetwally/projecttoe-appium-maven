@@ -133,7 +133,6 @@ public class ProjectToeAndroidTest {
 	@Test(groups = { "main" }, priority = 1)
 	public void signIn() throws Exception {
 		try {
-			startTestCase("makePost");
 			System.out.println("signIn");
 			WebElement element = (new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
