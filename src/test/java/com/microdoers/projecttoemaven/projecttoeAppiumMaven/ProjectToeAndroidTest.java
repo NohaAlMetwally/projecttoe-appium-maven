@@ -150,6 +150,7 @@ public class ProjectToeAndroidTest {
 
 	public void swipeThroughFrames() {
 		if (isElementPresent(By.name(projectToeTutPage))) {
+			System.out.println("found "+ projectToeTutPage);
 			driver.findElement(By.name(projectToeTutPage)).click();
 			swipeLeft();
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -2170,6 +2171,7 @@ public class ProjectToeAndroidTest {
 				driver.findElement(By.name(done)).click();
 			} catch (Exception e) {
 				System.out.println("Could not join happy life group");
+				driver.findElement(By.name(done)).click();
 			}
 			WebElement elementCancel = (new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
