@@ -150,7 +150,7 @@ public class ProjectToeAndroidTest {
 
 	public void swipeThroughFrames() {
 		if (isElementPresent(By.name(projectToeTutPage))) {
-			System.out.println("found "+ projectToeTutPage);
+			System.out.println("find element by name "+ projectToeTutPage);
 			driver.findElement(By.name(projectToeTutPage)).click();
 			swipeLeft();
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -549,6 +549,7 @@ public class ProjectToeAndroidTest {
 							.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
 			elementTypeYourSearch.sendKeys("Self Confiden");
 			driver.findElement(By.name("Self Confidence")).click();
+			System.out.println("find element by name");
 			System.out.println("Self Confidence found!");
 			// go back to search activity
 			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
@@ -615,13 +616,15 @@ public class ProjectToeAndroidTest {
 			} catch (NotFoundException e) {
 				System.out.println("Could not click Add");
 			}
-			driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			Thread.sleep(7000);			
 			// check if creating group failed and dialog shows up
 			if (isElementPresent(By.name("Create group Failed"))) {
+				System.out.println("find element by name");
 				driver.findElement(By.id("android:id/button1")).click();
 				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 				// change in new apk
 			} else if (isElementPresent(By.name("Ready to add \"Helpers?\""))) {
+				System.out.println("find element by name");
 				newGroupAdded = true;
 				driver.findElement(By.id("android:id/button2")).click();
 				// boost dialog
@@ -851,7 +854,6 @@ public class ProjectToeAndroidTest {
 	@Test(groups = "groupsTab", priority = 27, enabled = true)
 	public void canWriteReview() throws Exception {
 		System.out.println("can Write Review");
-		System.out.println("new group" + newGroupAdded);
 		// check to see if we just added a group
 		if (newGroupAdded) {
 			try {
@@ -2169,9 +2171,11 @@ public class ProjectToeAndroidTest {
 				driver.findElement(By.name("happy life")).click();
 				System.out.println("happy life group clicked");
 				driver.findElement(By.name(done)).click();
+				System.out.println("find element by name");
 			} catch (Exception e) {
 				System.out.println("Could not join happy life group");
 				driver.findElement(By.name(done)).click();
+				System.out.println("find element by name");
 			}
 			WebElement elementCancel = (new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
