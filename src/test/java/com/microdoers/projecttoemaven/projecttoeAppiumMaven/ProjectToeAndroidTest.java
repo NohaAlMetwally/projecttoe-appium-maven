@@ -112,7 +112,7 @@ public class ProjectToeAndroidTest {
 				capabilities);
 
 		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
-		Thread.sleep(10000);
+		Thread.sleep(10000*2);
 
 		System.out.println("setup done");
 	}
