@@ -1809,7 +1809,12 @@ public class ProjectToeAndroidTest {
 				.click();
 		try {
 			if (isElementPresent(By.name("test570"))) {
+				System.out.println("is Element Present");
 				// click on user test570
+				(new WebDriverWait(driver, 60)).until(
+						ExpectedConditions.presenceOfElementLocated(By
+								.name("test570"))).click();
+			}else{
 				(new WebDriverWait(driver, 60)).until(
 						ExpectedConditions.presenceOfElementLocated(By
 								.name("test570"))).click();
@@ -1876,6 +1881,7 @@ public class ProjectToeAndroidTest {
 				.click();
 		try {
 			if (isElementPresent(By.name("test570"))) {
+				System.out.println("is Element Present");
 				// click on user test570
 				(new WebDriverWait(driver, 60)).until(
 						ExpectedConditions.presenceOfElementLocated(By
@@ -1884,6 +1890,13 @@ public class ProjectToeAndroidTest {
 				driver.findElement(By.name("test555")).click();
 				System.out.println("find element by name");
 
+			}else{
+				(new WebDriverWait(driver, 60)).until(
+						ExpectedConditions.presenceOfElementLocated(By
+								.name("test570"))).click();
+				System.out.println("find element by name");
+				driver.findElement(By.name("test555")).click();
+				System.out.println("find element by name");
 			}
 		} catch (NoSuchElementException e) {
 			// if start new conversation activity opened so soone, friends list
