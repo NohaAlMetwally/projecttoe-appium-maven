@@ -107,7 +107,7 @@ public class ProjectToeAndroidTest {
 		capabilities.setCapability("platformVersion", "5.1");
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,
 				"Nexus_7_API_22_2");
-		  capabilities.setCapability("launchTimeout", 90000*2);
+		capabilities.setCapability("launchTimeout", 90000*2);
 		driver = new AndroidDriver(new URL("http://127.0.0.1:5000/wd/hub"),
 				capabilities);
 
@@ -192,7 +192,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "loginIssues", priority = 2, enabled = true)
+	@Test(groups = "loginIssues", priority = 2, enabled = false)
 	public void forgotPasswordInValidEmail() throws MalformedURLException {
 		System.out.println("forgot Password InValid Email");
 		try {
@@ -232,7 +232,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "loginIssues", priority = 3, enabled = true)
+	@Test(groups = "loginIssues", priority = 3, enabled = false)
 	public void forgotPasswordValidEmail() throws MalformedURLException {
 		System.out.println("forgot Password Valid Email");
 		try {
@@ -265,7 +265,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "loginIssues", priority = 4, enabled = true)
+	@Test(groups = "loginIssues", priority = 4, enabled = false)
 	public void loginWithInvalidCredentials() throws MalformedURLException {
 		// replace here to make test fail
 		System.out.println("login With Invalid Credentials");
@@ -304,7 +304,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "newsfeed", priority = 12, enabled = true)
+	@Test(groups = "newsfeed", priority = 12, enabled = false)
 	public void makePost() throws Exception {
 		System.out.println("makePost");
 		try {
@@ -361,7 +361,7 @@ public class ProjectToeAndroidTest {
 		System.out.println("Finding post just added successful");
 	}
 
-	@Test(groups = "newsfeed", priority = 13, enabled = true)
+	@Test(groups = "newsfeed", priority = 13, enabled = false)
 	public void hugPost() throws Exception {
 		// replace here to make test fail
 		System.out.println("hug Post");
@@ -392,7 +392,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "newsfeed", priority = 14, enabled = true)
+	@Test(groups = "newsfeed", priority = 14, enabled = false)
 	public void commentPost() throws Exception {
 		// replace here to make test fail
 		System.out.println("Comment Post");
@@ -494,7 +494,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "groupsTab", priority = 21, enabled = true)
+	@Test(groups = "groupsTab", priority = 21, enabled = false)
 	public void loadGroups() throws Exception {
 		// replace here to make test fail
 		System.out.println("load Groups");
@@ -566,7 +566,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "groupsTab", priority = 23, enabled = true)
+	@Test(groups = "groupsTab", priority = 23, enabled = false)
 	public void addGroup() throws Exception {
 		// replace here to make test fail
 		System.out.println("add group");
@@ -647,7 +647,7 @@ public class ProjectToeAndroidTest {
 
 	}
 
-	@Test(groups = "groupsTab", priority = 24, enabled = true)
+	@Test(groups = "groupsTab", priority = 24, enabled = false)
 	public void ubgradeGroupToPremium() throws Exception {
 		// replace here to make test fail
 		System.out.println("Ubgrade Group To Premium");
@@ -676,7 +676,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "groupsTab", priority = 25, enabled = true)
+	@Test(groups = "groupsTab", priority = 25, enabled = false)
 	public void makeGroupHelper() throws Exception {
 		// replace here to make test fail
 		if (upgradeGroupToPremium) {
@@ -708,7 +708,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "groupsTab", priority = 26, enabled = true)
+	@Test(groups = "groupsTab", priority = 26, enabled = false)
 	public void checkGroupDetails() throws Exception {
 		// replace here to make test fail
 		System.out.println("check group details");
@@ -851,7 +851,7 @@ public class ProjectToeAndroidTest {
 	}
 
 	// make write review after create group
-	@Test(groups = "groupsTab", priority = 27, enabled = true)
+	@Test(groups = "groupsTab", priority = 27, enabled = false)
 	public void canWriteReview() throws Exception {
 		System.out.println("can Write Review");
 		// check to see if we just added a group
@@ -984,7 +984,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "groupsTabNonadmin", priority = 29, enabled = true)
+	@Test(groups = "groupsTabNonadmin", priority = 29, enabled = false)
 	public void canDowngradeGroup() throws Exception {
 		// replace here to make test fail
 		System.out.println("Can Downgrade Group");
@@ -1047,7 +1047,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "groupsTabNonadmin", priority = 30, enabled = true)
+	@Test(groups = "groupsTabNonadmin", priority = 30, enabled = false)
 	public void canLeaveJoinPublicGroup() throws Exception {
 		// replace here to make test fail
 		System.out.println("Can Leave Join Public Group");
@@ -1140,7 +1140,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "groupsTabNonadmin", priority = 31, enabled = true)
+	@Test(groups = "groupsTabNonadmin", priority = 31, enabled = false)
 	public void canLeaveJoinPrivateGroup() throws Exception {
 		// replace here to make test fail
 		System.out.println("can Leave Join Private Group");
@@ -1302,7 +1302,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "adminPanel", priority = 32, enabled = true)
+	@Test(groups = "adminPanel", priority = 32, enabled = false)
 	public void canBlockUnblockUsers() throws Exception {
 		// replace here to make test fail
 		System.out.println("Can Block Users");
@@ -1352,7 +1352,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "adminPanel", priority = 33, enabled = true)
+	@Test(groups = "adminPanel", priority = 33, enabled = false)
 	public void canBroadcastMessage() throws Exception {
 		// replace here to make test fail
 		System.out.println("can Broadcast Message");
@@ -1394,7 +1394,7 @@ public class ProjectToeAndroidTest {
 
 	}
 
-	@Test(groups = "adminPanel", priority = 34, enabled = true)
+	@Test(groups = "adminPanel", priority = 34, enabled = false)
 	public void canAddRemoveHelper() throws Exception {
 		// replace here to make test fail
 		System.out.println("Can add remove helper");
@@ -1439,7 +1439,7 @@ public class ProjectToeAndroidTest {
 
 	}
 
-	@Test(groups = "adminPanel", priority = 35, enabled = true)
+	@Test(groups = "adminPanel", priority = 35, enabled = false)
 	public void canTogglePrivateSwitch() throws Exception {
 		// replace here to make test fail
 		System.out.println("can Toggle Private Switch");
@@ -1509,7 +1509,7 @@ public class ProjectToeAndroidTest {
 
 	}
 
-	@Test(groups = "adminPanel", priority = 36, enabled = true)
+	@Test(groups = "adminPanel", priority = 36, enabled = false)
 	public void canToggleHelperSwitch() throws Exception {
 		// replace here to make test fail
 		System.out.println("Can Toggle Helper Switch");
@@ -1562,7 +1562,7 @@ public class ProjectToeAndroidTest {
 
 	}
 
-	@Test(groups = "adminPanel", priority = 37, enabled = true)
+	@Test(groups = "adminPanel", priority = 37, enabled = false)
 	public void canAddPending() throws Exception {
 		// replace here to make test fail
 		System.out.println("Can Add Pending");
@@ -1652,7 +1652,7 @@ public class ProjectToeAndroidTest {
 
 	}
 
-	@Test(groups = "adminPanel", priority = 38, enabled = true)
+	@Test(groups = "adminPanel", priority = 38, enabled = false)
 	public void canChangeGroupKeywords() throws Exception {
 		// replace here to make test fail
 		System.out.println("Can Change Group Keywords");
@@ -1715,7 +1715,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "requestsTab", priority = 39, enabled = true)
+	@Test(groups = "requestsTab", priority = 39, enabled = false)
 	public void goToRequestsTab() throws Exception {
 		// replace here to make test fail
 		System.out.println("Go To Requests Tab");
@@ -1735,7 +1735,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "requestsTab", priority = 40, enabled = true)
+	@Test(groups = "requestsTab", priority = 40, enabled = false)
 	public void loadRequests() throws Exception {
 		// replace here to make test fail
 		System.out.println("load Requests");
@@ -1937,7 +1937,7 @@ public class ProjectToeAndroidTest {
 		System.out.println("Start Group Chat Succeed!");
 	}
 
-	@Test(groups = "notificationsTab", priority = 50, enabled = true)
+	@Test(groups = "notificationsTab", priority = 50, enabled = false)
 	public void goToNotificationsTab() throws Exception {
 		// replace here to make test fail
 		System.out.println("GoTo Notifications Tab");
@@ -1957,7 +1957,7 @@ public class ProjectToeAndroidTest {
 
 	}
 
-	@Test(groups = "notificationsTab", priority = 51, enabled = true)
+	@Test(groups = "notificationsTab", priority = 51, enabled = false)
 	public void loadNotifications() throws Exception {
 		// replace here to make test fail
 		System.out.println("load Notifications");
@@ -2105,7 +2105,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "signup", priority = 80, enabled = true)
+	@Test(groups = "signup", priority = 80, enabled = false)
 	public void signUpValidValues() throws Exception {
 		System.out.println("signUp Valid Values");
 
@@ -2263,7 +2263,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "main", priority = 70, enabled = true)
+	@Test(groups = "main", priority = 70, enabled = false)
 	public void logout() throws Exception {
 		System.out.println("logOut");
 		// click on Profile
