@@ -427,7 +427,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "groupsTab", priority = 20, enabled = true)
+	@Test(groups = "groupsTab", priority = 20, enabled = false)
 	public void upgradeUserToPremium() throws Exception {
 		// replace here to make test fail
 		try {
