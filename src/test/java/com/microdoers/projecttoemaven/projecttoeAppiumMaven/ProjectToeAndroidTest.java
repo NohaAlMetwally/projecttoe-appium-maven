@@ -1880,7 +1880,10 @@ public class ProjectToeAndroidTest {
 				(new WebDriverWait(driver, 60)).until(
 						ExpectedConditions.presenceOfElementLocated(By
 								.name("test570"))).click();
+				System.out.println("find element by name");
 				driver.findElement(By.name("test555")).click();
+				System.out.println("find element by name");
+
 			}
 		} catch (NoSuchElementException e) {
 			// if start new conversation activity opened so soone, friends list
@@ -1895,7 +1898,9 @@ public class ProjectToeAndroidTest {
 			(new WebDriverWait(driver, 60)).until(
 					ExpectedConditions.presenceOfElementLocated(By
 							.name("test570"))).click();
+			System.out.println("find element by name");
 			driver.findElement(By.name("test555")).click();
+			System.out.println("find element by name");
 		}
 		driver.findElement(
 				By.id("com.microdoers.projecttoe:id/action_start_group_conversation"))
