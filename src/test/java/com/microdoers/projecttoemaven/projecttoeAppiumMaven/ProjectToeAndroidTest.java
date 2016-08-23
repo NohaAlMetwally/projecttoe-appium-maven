@@ -1861,7 +1861,6 @@ public class ProjectToeAndroidTest {
 	public void startGroupChat() throws Exception {
 		// replace here to make test fail
 		System.out.println("Start Group Chat");
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		// click on new chat
 		(new WebDriverWait(driver, 60)).until(
 				ExpectedConditions.presenceOfElementLocated(By
@@ -1871,7 +1870,9 @@ public class ProjectToeAndroidTest {
 				.until(ExpectedConditions.presenceOfElementLocated(By
 						.id("com.microdoers.projecttoe:id/menu_item_newGroup")))
 				.click();
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		(new WebDriverWait(driver, 60)).until(ExpectedConditions
+				.presenceOfElementLocated(By
+						.id("com.microdoers.projecttoe:id/participant_list")));
 		List<WebElement> contactsList = driver
 				.findElements(By
 						.xpath("//android.widget.TextView[@resource-id='com.microdoers.projecttoe:id/title']"));
