@@ -6,13 +6,8 @@
       <class name="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest">
         <methods>
           <include name="setUp"/>
-          <include name="startPrivateChat"/>
           <include name="afterClass"/>
-          <include name="loadMessages"/>
-          <include name="signIn"/>
-          <include name="startGroupChat"/>
           <include name="goToChatTab"/>
-          <include name="logIn"/>
         </methods>
       </class> <!-- com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest -->
     </classes>

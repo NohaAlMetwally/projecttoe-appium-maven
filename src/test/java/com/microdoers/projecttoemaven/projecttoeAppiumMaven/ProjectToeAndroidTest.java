@@ -113,7 +113,6 @@ public class ProjectToeAndroidTest {
 
 		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 		Thread.sleep(10000 * 2);
-
 		System.out.println("setup done");
 	}
 
@@ -304,7 +303,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "newsfeed", priority = 12, enabled = false)
+	@Test(groups = "newsfeed", priority = 12, enabled = true)
 	public void makePost() throws Exception {
 		System.out.println("makePost");
 		try {
@@ -361,7 +360,7 @@ public class ProjectToeAndroidTest {
 		System.out.println("Finding post just added successful");
 	}
 
-	@Test(groups = "newsfeed", priority = 13, enabled = false)
+	@Test(groups = "newsfeed", priority = 13, enabled = true)
 	public void hugPost() throws Exception {
 		// replace here to make test fail
 		System.out.println("hug Post");
@@ -392,7 +391,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "newsfeed", priority = 14, enabled = false)
+	@Test(groups = "newsfeed", priority = 14, enabled = true)
 	public void commentPost() throws Exception {
 		// replace here to make test fail
 		System.out.println("Comment Post");
