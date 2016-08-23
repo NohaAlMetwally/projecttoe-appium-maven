@@ -113,6 +113,7 @@ public class ProjectToeAndroidTest {
 
 		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 		Thread.sleep(10000 * 2);
+
 		System.out.println("setup done");
 	}
 
@@ -1844,9 +1845,9 @@ public class ProjectToeAndroidTest {
 			elementWriteMsg.sendKeys(appiumChatMsg);
 			driver.findElement(
 					By.id("com.microdoers.projecttoe:id/send_button")).click();
-			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			(new WebDriverWait(driver, 60)).until(ExpectedConditions
 					.presenceOfElementLocated(By.name(appiumChatMsg)));
+			System.out.println("message has been sent successfully");
 		} catch (NoSuchElementException e) {
 			System.out
 					.println("didn't find the message edit text, something wnet wrong "
@@ -1861,7 +1862,7 @@ public class ProjectToeAndroidTest {
 					+ e.getMessage());
 		}
 		((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
-		((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+		// ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 		System.out.println("Start Private Chat Succeed!");
 	}
 
@@ -1871,7 +1872,9 @@ public class ProjectToeAndroidTest {
 		System.out.println("Start Group Chat");
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		// click on new chat
-		driver.findElement(By.className("android.widget.ImageButton")).click();
+		(new WebDriverWait(driver, 60)).until(
+				ExpectedConditions.presenceOfElementLocated(By
+						.className("android.widget.ImageButton"))).click();
 		// click on new conversation
 		(new WebDriverWait(driver, 60))
 				.until(ExpectedConditions.presenceOfElementLocated(By
@@ -1881,7 +1884,6 @@ public class ProjectToeAndroidTest {
 		List<WebElement> contactsList = driver
 				.findElements(By
 						.xpath("//android.widget.TextView[@resource-id='com.microdoers.projecttoe:id/title']"));
-		System.out.println("contact list size " + contactsList.size());
 		try {
 			contactsList.get(1).click();
 			contactsList.get(1).click();
@@ -1942,7 +1944,7 @@ public class ProjectToeAndroidTest {
 			System.out.println("didn't find the message, something wnet wrong "
 					+ e.getMessage());
 		}
-		((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+		// ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 		((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 		System.out.println("Start Group Chat Succeed!");
 	}
