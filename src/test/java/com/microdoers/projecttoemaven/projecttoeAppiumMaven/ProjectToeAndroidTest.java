@@ -107,12 +107,12 @@ public class ProjectToeAndroidTest {
 		capabilities.setCapability("platformVersion", "5.1");
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,
 				"Nexus_7_API_22_2");
-		capabilities.setCapability("launchTimeout", 90000*2);
+		capabilities.setCapability("launchTimeout", 90000 * 2);
 		driver = new AndroidDriver(new URL("http://127.0.0.1:5000/wd/hub"),
 				capabilities);
 
 		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
-		Thread.sleep(10000*2);
+		Thread.sleep(10000 * 2);
 
 		System.out.println("setup done");
 	}
@@ -138,7 +138,7 @@ public class ProjectToeAndroidTest {
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("tutorial_signin_button")));
 			try {
-				swipeThroughFrames();
+				// swipeThroughFrames();
 				element.click();
 			} catch (NoSuchElementException e) {
 				element.click();
@@ -150,7 +150,7 @@ public class ProjectToeAndroidTest {
 
 	public void swipeThroughFrames() {
 		if (isElementPresent(By.name(projectToeTutPage))) {
-			System.out.println("find element by name "+ projectToeTutPage);
+			System.out.println("find element by name " + projectToeTutPage);
 			driver.findElement(By.name(projectToeTutPage)).click();
 			swipeLeft();
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -616,7 +616,7 @@ public class ProjectToeAndroidTest {
 			} catch (NotFoundException e) {
 				System.out.println("Could not click Add");
 			}
-			Thread.sleep(7000);			
+			Thread.sleep(7000);
 			// check if creating group failed and dialog shows up
 			if (isElementPresent(By.name("Create group Failed"))) {
 				System.out.println("find element by name");
@@ -1762,11 +1762,16 @@ public class ProjectToeAndroidTest {
 		// replace here to make test fail
 		System.out.println("Open contacts tab");
 		try {
+
+			(new WebDriverWait(driver, 60)).until(ExpectedConditions
+					.presenceOfElementLocated(By
+							.id("com.microdoers.projecttoe:id/tabIcon")));
+			driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
 			List<WebElement> elementTabs = driver
 					.findElements(By
 							.xpath("//android.widget.ImageView[@resource-id='com.microdoers.projecttoe:id/tabIcon']"));
 			elementTabs.get(3).click();
-			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			if (isElementPresent(By.name("Chats"))) {
 				System.out.println("Open chat tab succeed!");
 			}
@@ -1780,9 +1785,9 @@ public class ProjectToeAndroidTest {
 	public void loadMessages() throws Exception {
 		// replace here to make test fail
 		System.out.println("Load messages");
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		try {
-			(new WebDriverWait(driver, 20)).until(ExpectedConditions
+			(new WebDriverWait(driver, 60)).until(ExpectedConditions
 					.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/last_message")));
 
@@ -1807,24 +1812,17 @@ public class ProjectToeAndroidTest {
 				ExpectedConditions.presenceOfElementLocated(By
 						.id("com.microdoers.projecttoe:id/menu_item_newConv")))
 				.click();
+		(new WebDriverWait(driver, 60)).until(ExpectedConditions
+				.presenceOfElementLocated(By
+						.id("com.microdoers.projecttoe:id/participant_list")));
+		List<WebElement> contactsList = driver
+				.findElements(By
+						.xpath("//android.widget.TextView[@resource-id='com.microdoers.projecttoe:id/title']"));
+		WebElement contactTest570 = contactsList.get(2);
+		// assertEquals("test570", contactTest570.getText());
 		try {
-			if (isElementPresent(By.name("test570"))) {
-				System.out.println("in if");
-				System.out.println("is Element Present");
-				// click on user test570
-				(new WebDriverWait(driver, 60)).until(
-						ExpectedConditions.presenceOfElementLocated(By
-								.name("test570"))).click();
-				System.out.println("find element by name");
-
-			}else{
-				System.out.println("in else");
-				(new WebDriverWait(driver, 60)).until(
-						ExpectedConditions.presenceOfElementLocated(By
-								.name("test570"))).click();
-				System.out.println("find element by name");
-
-			}
+			// click on user test570
+			contactTest570.click();
 		} catch (NoSuchElementException e) {
 			// if start new conversation activity opened so soone, friends list
 			// may not be show up
@@ -1834,38 +1832,33 @@ public class ProjectToeAndroidTest {
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/menu_item_newConv")))
 					.click();
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			// click on user test570
-			(new WebDriverWait(driver, 60)).until(
-					ExpectedConditions.presenceOfElementLocated(By
-							.name("test570"))).click();
+			contactTest570.click();
 		}
-
-		WebElement elementWriteMsg = (new WebDriverWait(driver, 60))
-				.until(ExpectedConditions.presenceOfElementLocated(By
-						.id("com.microdoers.projecttoe:id/message_edit_text")));
-		dateNow = new SimpleDateFormat("dd-MM-YY-hh:mm").format(new Date());
-		appiumChatMsg = postContent + " " + dateNow;
-		elementWriteMsg.sendKeys(appiumChatMsg);
-		driver.findElement(By.id("com.microdoers.projecttoe:id/send_button"))
-				.click();
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		(new WebDriverWait(driver, 60)).until(ExpectedConditions
-				.presenceOfElementLocated(By.name(appiumChatMsg)));
 		try {
-			List<WebElement> elementmsgs = driver
-					.findElements(By
-							.xpath("//android.widget.TextView[@resource-id='com.microdoers.projecttoe:id/cell_text']"));
-			if (elementmsgs.get(elementmsgs.size() - 1).getText()
-					.equals(appiumChatMsg)) {
-				System.out.println("message has been posted successfully");
-			} else {
-				System.out.println(elementmsgs.get(elementmsgs.size() - 1)
-						.getText());
-				System.out.println(appiumChatMsg);
-				System.out.println("message hasn't been posted successfully");
-			}
+			WebElement elementWriteMsg = (new WebDriverWait(driver, 60))
+					.until(ExpectedConditions.presenceOfElementLocated(By
+							.id("com.microdoers.projecttoe:id/message_edit_text")));
+			dateNow = new SimpleDateFormat("dd-MM-YY-hh:mm").format(new Date());
+			appiumChatMsg = postContent + " " + dateNow;
+			elementWriteMsg.sendKeys(appiumChatMsg);
+			driver.findElement(
+					By.id("com.microdoers.projecttoe:id/send_button")).click();
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			(new WebDriverWait(driver, 60)).until(ExpectedConditions
+					.presenceOfElementLocated(By.name(appiumChatMsg)));
 		} catch (NoSuchElementException e) {
-			System.out.println("didn't find the message, something wnet wrong "
+			System.out
+					.println("didn't find the message edit text, something wnet wrong "
+							+ e.getMessage());
+		}
+		try {
+			WebElement elementSent = (new WebDriverWait(driver, 60))
+					.until(ExpectedConditions.presenceOfElementLocated(By
+							.id("com.microdoers.projecttoe:id/receipt")));
+		} catch (NoSuchElementException e) {
+			System.out.println("message hasn't been posted successfully"
 					+ e.getMessage());
 		}
 		((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
@@ -1885,27 +1878,14 @@ public class ProjectToeAndroidTest {
 				.until(ExpectedConditions.presenceOfElementLocated(By
 						.id("com.microdoers.projecttoe:id/menu_item_newGroup")))
 				.click();
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		List<WebElement> contactsList = driver
+				.findElements(By
+						.xpath("//android.widget.TextView[@resource-id='com.microdoers.projecttoe:id/title']"));
+		System.out.println("contact list size " + contactsList.size());
 		try {
-			if (isElementPresent(By.name("test570"))) {
-				System.out.println("in if");
-				System.out.println("is Element Present");
-				// click on user test570
-				(new WebDriverWait(driver, 60)).until(
-						ExpectedConditions.presenceOfElementLocated(By
-								.name("test570"))).click();
-				System.out.println("find element by name");
-				driver.findElement(By.name("test555")).click();
-				System.out.println("find element by name");
-
-			}else{
-				System.out.println("in else");
-				(new WebDriverWait(driver, 60)).until(
-						ExpectedConditions.presenceOfElementLocated(By
-								.name("test570"))).click();
-				System.out.println("find element by name");
-				driver.findElement(By.name("test555")).click();
-				System.out.println("find element by name");
-			}
+			contactsList.get(1).click();
+			contactsList.get(1).click();
 		} catch (NoSuchElementException e) {
 			// if start new conversation activity opened so soone, friends list
 			// may not be show up
@@ -1915,28 +1895,33 @@ public class ProjectToeAndroidTest {
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/menu_item_newConv")))
 					.click();
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			// click on user test570
-			(new WebDriverWait(driver, 60)).until(
-					ExpectedConditions.presenceOfElementLocated(By
-							.name("test570"))).click();
-			System.out.println("find element by name");
-			driver.findElement(By.name("test555")).click();
-			System.out.println("find element by name");
+			contactsList.get(1).click();
+			contactsList.get(1).click();
+
 		}
-		driver.findElement(
-				By.id("com.microdoers.projecttoe:id/action_start_group_conversation"))
-				.click();
-		WebElement elementWriteMsg = (new WebDriverWait(driver, 60))
-				.until(ExpectedConditions.presenceOfElementLocated(By
-						.id("com.microdoers.projecttoe:id/message_edit_text")));
-		dateNow = new SimpleDateFormat("dd-MM-YY-hh:mm").format(new Date());
-		appiumChatMsg = postContent + " " + dateNow;
-		elementWriteMsg.sendKeys(appiumChatMsg);
-		driver.findElement(By.id("com.microdoers.projecttoe:id/send_button"))
-				.click();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		(new WebDriverWait(driver, 60)).until(ExpectedConditions
-				.presenceOfElementLocated(By.name(appiumChatMsg)));
+		try {
+			driver.findElement(
+					By.id("com.microdoers.projecttoe:id/action_start_group_conversation"))
+					.click();
+			WebElement elementWriteMsg = (new WebDriverWait(driver, 60))
+					.until(ExpectedConditions.presenceOfElementLocated(By
+							.id("com.microdoers.projecttoe:id/message_edit_text")));
+			dateNow = new SimpleDateFormat("dd-MM-YY-hh:mm").format(new Date());
+			appiumChatMsg = postContent + " " + dateNow;
+			elementWriteMsg.sendKeys(appiumChatMsg);
+			driver.findElement(
+					By.id("com.microdoers.projecttoe:id/send_button")).click();
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			(new WebDriverWait(driver, 60)).until(ExpectedConditions
+					.presenceOfElementLocated(By.name(appiumChatMsg)));
+
+		} catch (NoSuchElementException e) {
+			System.out
+					.println("didn't find the message edit text, something wnet wrong "
+							+ e.getMessage());
+		}
 		try {
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			List<WebElement> elementmsgs = driver
