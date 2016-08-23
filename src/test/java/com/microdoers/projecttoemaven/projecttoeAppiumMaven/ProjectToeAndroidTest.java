@@ -113,7 +113,6 @@ public class ProjectToeAndroidTest {
 
 		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 		Thread.sleep(10000 * 2);
-
 		System.out.println("setup done");
 	}
 
@@ -1845,15 +1844,7 @@ public class ProjectToeAndroidTest {
 			elementWriteMsg.sendKeys(appiumChatMsg);
 			driver.findElement(
 					By.id("com.microdoers.projecttoe:id/send_button")).click();
-			(new WebDriverWait(driver, 60)).until(ExpectedConditions
-					.presenceOfElementLocated(By.name(appiumChatMsg)));
 			System.out.println("message has been sent successfully");
-		} catch (NoSuchElementException e) {
-			System.out
-					.println("didn't find the message edit text, something wnet wrong "
-							+ e.getMessage());
-		}
-		try {
 			WebElement elementSent = (new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/receipt")));
@@ -1900,7 +1891,6 @@ public class ProjectToeAndroidTest {
 			// click on user test570
 			contactsList.get(1).click();
 			contactsList.get(1).click();
-
 		}
 		try {
 			driver.findElement(
@@ -1914,34 +1904,12 @@ public class ProjectToeAndroidTest {
 			elementWriteMsg.sendKeys(appiumChatMsg);
 			driver.findElement(
 					By.id("com.microdoers.projecttoe:id/send_button")).click();
-			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			(new WebDriverWait(driver, 60)).until(ExpectedConditions
-					.presenceOfElementLocated(By.name(appiumChatMsg)));
-
+			System.out.println("message has been sent successfully");
+			WebElement elementSent = (new WebDriverWait(driver, 60))
+					.until(ExpectedConditions.presenceOfElementLocated(By
+							.id("com.microdoers.projecttoe:id/receipt")));
 		} catch (NoSuchElementException e) {
-			System.out
-					.println("didn't find the message edit text, something wnet wrong "
-							+ e.getMessage());
-		}
-		try {
-			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-			List<WebElement> elementmsgs = driver
-					.findElements(By
-							.xpath("//android.widget.TextView[@resource-id='com.microdoers.projecttoe:id/cell_text']"));
-			if (elementmsgs.get(elementmsgs.size() - 1).getText()
-					.equals(appiumChatMsg)) {
-				System.out
-						.println("message has been sent to group chat successfully");
-			} else {
-
-				System.out.println(elementmsgs.get(elementmsgs.size() - 1)
-						.getText());
-
-				System.out
-						.println("message hasn't been sent to group chat successfully");
-			}
-		} catch (NoSuchElementException e) {
-			System.out.println("didn't find the message, something wnet wrong "
+			System.out.println("message hasn't been posted successfully"
 					+ e.getMessage());
 		}
 		// ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
