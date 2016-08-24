@@ -191,7 +191,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "loginIssues", priority = 2, enabled = false)
+	@Test(groups = "loginIssues", priority = 2, enabled = true)
 	public void forgotPasswordInValidEmail() throws MalformedURLException {
 		System.out.println("forgot Password InValid Email");
 		try {
@@ -231,7 +231,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "loginIssues", priority = 3, enabled = false)
+	@Test(groups = "loginIssues", priority = 3, enabled = true)
 	public void forgotPasswordValidEmail() throws MalformedURLException {
 		System.out.println("forgot Password Valid Email");
 		try {
@@ -264,7 +264,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "loginIssues", priority = 4, enabled = false)
+	@Test(groups = "loginIssues", priority = 4, enabled = true)
 	public void loginWithInvalidCredentials() throws MalformedURLException {
 		// replace here to make test fail
 		System.out.println("login With Invalid Credentials");
@@ -2086,7 +2086,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "signup", priority = 80, enabled = false)
+	@Test(groups = "signup", priority = 80, enabled = true)
 	public void signUpValidValues() throws Exception {
 		System.out.println("signUp Valid Values");
 
@@ -2138,8 +2138,11 @@ public class ProjectToeAndroidTest {
 		try {
 			driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
 			try {
-				driver.findElement(By.name("self harm")).click();
-				System.out.println("self harm group clicked");
+				List<WebElement> elementTabs = driver
+						.findElements(By
+								.xpath("//android.widget.TextView[@resource-id='com.microdoers.projecttoe:id/network_search_name']"));
+				elementTabs.get(0).click();
+				System.out.println("group clicked");
 			} catch (Exception e) {
 				System.out.println("Could not join self harm group");
 			}
@@ -2149,14 +2152,19 @@ public class ProjectToeAndroidTest {
 						.findElement(By
 								.id("com.microdoers.projecttoe:id/join_projecttoe_search_group_edittext"));
 				elementSearchGroup.sendKeys("happy lif");
-				driver.findElement(By.name("happy life")).click();
+				List<WebElement> elementTabs = driver
+						.findElements(By
+								.xpath("//android.widget.TextView[@resource-id='com.microdoers.projecttoe:id/network_search_name']"));
+				elementTabs.get(0).click();
 				System.out.println("happy life group clicked");
-				driver.findElement(By.name(done)).click();
-				System.out.println("find element by name");
+				driver.findElement(
+						By.id("com.microdoers.projecttoe:id/action_done"))
+						.click();
 			} catch (Exception e) {
 				System.out.println("Could not join happy life group");
-				driver.findElement(By.name(done)).click();
-				System.out.println("find element by name");
+				driver.findElement(
+						By.id("com.microdoers.projecttoe:id/action_done"))
+						.click();
 			}
 			WebElement elementCancel = (new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
@@ -2244,7 +2252,7 @@ public class ProjectToeAndroidTest {
 		}
 	}
 
-	@Test(groups = "main", priority = 70, enabled = false)
+	@Test(groups = "main", priority = 70, enabled = true)
 	public void logout() throws Exception {
 		System.out.println("logOut");
 		// click on Profile

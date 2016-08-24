@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="9" passed="9">
+<testng-results skipped="0" failed="0" total="11" passed="11">
   <reporter-output>
   </reporter-output>
-  <suite name="Command line suite" duration-ms="145155" started-at="2016-08-23T18:24:26Z" finished-at="2016-08-23T18:26:52Z">
+  <suite name="Command line suite" duration-ms="435061" started-at="2016-08-24T15:31:26Z" finished-at="2016-08-24T15:38:41Z">
     <groups>
       <group name="chatTab">
         <method signature="ProjectToeAndroidTest.goToChatTab()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="goToChatTab" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
@@ -17,52 +17,64 @@
       </group> <!-- newsfeed -->
       <group name="main">
         <method signature="ProjectToeAndroidTest.logIn()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="logIn" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.logout()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="logout" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
         <method signature="ProjectToeAndroidTest.signIn()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="signIn" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
       </group> <!-- main -->
+      <group name="signup">
+        <method signature="ProjectToeAndroidTest.signUpValidValues()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="signUpValidValues" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+      </group> <!-- signup -->
     </groups>
-    <test name="Command line test" duration-ms="145155" started-at="2016-08-23T18:24:26Z" finished-at="2016-08-23T18:26:52Z">
+    <test name="Command line test" duration-ms="435061" started-at="2016-08-24T15:31:26Z" finished-at="2016-08-24T15:38:41Z">
       <class name="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="setUp" is-config="true" duration-ms="40472" started-at="2016-08-23T21:24:26Z" finished-at="2016-08-23T21:25:07Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="setUp" is-config="true" duration-ms="206026" started-at="2016-08-24T18:31:26Z" finished-at="2016-08-24T18:34:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="signIn()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="signIn" duration-ms="2106" started-at="2016-08-23T21:25:07Z" finished-at="2016-08-23T21:25:09Z">
+        <test-method status="PASS" signature="signIn()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="signIn" duration-ms="8001" started-at="2016-08-24T18:34:52Z" finished-at="2016-08-24T18:35:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- signIn -->
-        <test-method status="PASS" signature="logIn()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="logIn" duration-ms="13392" started-at="2016-08-23T21:25:09Z" finished-at="2016-08-23T21:25:22Z">
+        <test-method status="PASS" signature="logIn()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="logIn" duration-ms="14525" started-at="2016-08-24T18:35:00Z" finished-at="2016-08-24T18:35:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logIn -->
-        <test-method status="PASS" signature="makePost()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="makePost" duration-ms="26183" started-at="2016-08-23T21:25:22Z" finished-at="2016-08-23T21:25:49Z">
+        <test-method status="PASS" signature="makePost()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="makePost" duration-ms="35012" started-at="2016-08-24T18:35:15Z" finished-at="2016-08-24T18:35:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- makePost -->
-        <test-method status="PASS" signature="hugPost()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="hugPost" duration-ms="4320" started-at="2016-08-23T21:25:49Z" finished-at="2016-08-23T21:25:53Z">
+        <test-method status="PASS" signature="hugPost()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="hugPost" duration-ms="5285" started-at="2016-08-24T18:35:50Z" finished-at="2016-08-24T18:35:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- hugPost -->
-        <test-method status="PASS" signature="commentPost()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="commentPost" duration-ms="12199" started-at="2016-08-23T21:25:53Z" finished-at="2016-08-23T21:26:05Z">
+        <test-method status="PASS" signature="commentPost()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="commentPost" duration-ms="13239" started-at="2016-08-24T18:35:55Z" finished-at="2016-08-24T18:36:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- commentPost -->
-        <test-method status="PASS" signature="goToChatTab()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="goToChatTab" duration-ms="4744" started-at="2016-08-23T21:26:05Z" finished-at="2016-08-23T21:26:10Z">
+        <test-method status="PASS" signature="goToChatTab()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="goToChatTab" duration-ms="4926" started-at="2016-08-24T18:36:08Z" finished-at="2016-08-24T18:36:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- goToChatTab -->
-        <test-method status="PASS" signature="loadMessages()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="loadMessages" duration-ms="84" started-at="2016-08-23T21:26:10Z" finished-at="2016-08-23T21:26:10Z">
+        <test-method status="PASS" signature="loadMessages()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="loadMessages" duration-ms="83" started-at="2016-08-24T18:36:13Z" finished-at="2016-08-24T18:36:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadMessages -->
-        <test-method status="PASS" signature="startPrivateChat()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="startPrivateChat" duration-ms="19131" started-at="2016-08-23T21:26:10Z" finished-at="2016-08-23T21:26:29Z">
+        <test-method status="PASS" signature="startPrivateChat()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="startPrivateChat" duration-ms="26049" started-at="2016-08-24T18:36:13Z" finished-at="2016-08-24T18:36:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startPrivateChat -->
-        <test-method status="PASS" signature="startGroupChat()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="startGroupChat" duration-ms="19543" started-at="2016-08-23T21:26:29Z" finished-at="2016-08-23T21:26:49Z">
+        <test-method status="PASS" signature="startGroupChat()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="startGroupChat" duration-ms="22512" started-at="2016-08-24T18:36:39Z" finished-at="2016-08-24T18:37:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startGroupChat -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="afterClass" is-config="true" duration-ms="2938" started-at="2016-08-23T21:26:49Z" finished-at="2016-08-23T21:26:52Z">
+        <test-method status="PASS" signature="logout()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="logout" duration-ms="25104" started-at="2016-08-24T18:37:02Z" finished-at="2016-08-24T18:37:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+        <test-method status="PASS" signature="signUpValidValues()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="signUpValidValues" duration-ms="72598" started-at="2016-08-24T18:37:27Z" finished-at="2016-08-24T18:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signUpValidValues -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="afterClass" is-config="true" duration-ms="1609" started-at="2016-08-24T18:38:39Z" finished-at="2016-08-24T18:38:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->

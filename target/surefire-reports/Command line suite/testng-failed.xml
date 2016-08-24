@@ -6,11 +6,13 @@
       <class name="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest">
         <methods>
           <include name="setUp"/>
-          <include name="startPrivateChat"/>
           <include name="afterClass"/>
-          <include name="loadMessages"/>
           <include name="hugPost"/>
           <include name="signIn"/>
+          <include name="logout"/>
+          <include name="startPrivateChat"/>
+          <include name="loadMessages"/>
+          <include name="signUpValidValues"/>
           <include name="startGroupChat"/>
           <include name="makePost"/>
           <include name="goToChatTab"/>
