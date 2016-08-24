@@ -2136,7 +2136,9 @@ public class ProjectToeAndroidTest {
 			throw e;
 		}
 		try {
-			driver.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			(new WebDriverWait(driver, 60)).until(ExpectedConditions
+					.presenceOfElementLocated(By
+							.id("com.microdoers.projecttoe:id/network_search_name")));
 			try {
 				List<WebElement> elementTabs = driver
 						.findElements(By
@@ -2152,6 +2154,9 @@ public class ProjectToeAndroidTest {
 						.findElement(By
 								.id("com.microdoers.projecttoe:id/join_projecttoe_search_group_edittext"));
 				elementSearchGroup.sendKeys("happy lif");
+				(new WebDriverWait(driver, 60)).until(ExpectedConditions
+						.presenceOfElementLocated(By
+								.id("com.microdoers.projecttoe:id/network_search_name")));
 				List<WebElement> elementTabs = driver
 						.findElements(By
 								.xpath("//android.widget.TextView[@resource-id='com.microdoers.projecttoe:id/network_search_name']"));
