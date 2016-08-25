@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="11" passed="11">
+<testng-results skipped="0" failed="0" total="30" passed="30">
   <reporter-output>
   </reporter-output>
-  <suite name="Command line suite" duration-ms="435061" started-at="2016-08-24T15:31:26Z" finished-at="2016-08-24T15:38:41Z">
+  <suite name="Command line suite" duration-ms="739766" started-at="2016-08-25T13:11:49Z" finished-at="2016-08-25T13:24:09Z">
     <groups>
       <group name="chatTab">
         <method signature="ProjectToeAndroidTest.goToChatTab()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="goToChatTab" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
@@ -10,6 +10,27 @@
         <method signature="ProjectToeAndroidTest.startGroupChat()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="startGroupChat" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
         <method signature="ProjectToeAndroidTest.startPrivateChat()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="startPrivateChat" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
       </group> <!-- chatTab -->
+      <group name="adminPanel">
+        <method signature="ProjectToeAndroidTest.canAddPending()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canAddPending" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.canAddRemoveHelper()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canAddRemoveHelper" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.canBlockUnblockUsers()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canBlockUnblockUsers" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.canBroadcastMessage()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canBroadcastMessage" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.canChangeGroupKeywords()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canChangeGroupKeywords" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.canTogglePrivateSwitch()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canTogglePrivateSwitch" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+      </group> <!-- adminPanel -->
+      <group name="notificationsTab">
+        <method signature="ProjectToeAndroidTest.goToNotificationsTab()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="goToNotificationsTab" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.loadNotifications()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="loadNotifications" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+      </group> <!-- notificationsTab -->
+      <group name="groupsTab">
+        <method signature="ProjectToeAndroidTest.addGroup()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="addGroup" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.canWriteReview()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canWriteReview" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.checkGroupDetails()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="checkGroupDetails" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.loadGroups()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="loadGroups" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.makeGroupHelper()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="makeGroupHelper" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.searchGroup()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="searchGroup" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.ubgradeGroupToPremium()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="ubgradeGroupToPremium" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+      </group> <!-- groupsTab -->
       <group name="newsfeed">
         <method signature="ProjectToeAndroidTest.commentPost()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="commentPost" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
         <method signature="ProjectToeAndroidTest.hugPost()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="hugPost" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
@@ -20,61 +41,145 @@
         <method signature="ProjectToeAndroidTest.logout()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="logout" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
         <method signature="ProjectToeAndroidTest.signIn()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="signIn" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
       </group> <!-- main -->
+      <group name="groupsTabNonadmin">
+        <method signature="ProjectToeAndroidTest.canLeaveJoinPrivateGroup()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canLeaveJoinPrivateGroup" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.canLeaveJoinPublicGroup()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canLeaveJoinPublicGroup" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+      </group> <!-- groupsTabNonadmin -->
+      <group name="requestsTab">
+        <method signature="ProjectToeAndroidTest.goToRequestsTab()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="goToRequestsTab" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+        <method signature="ProjectToeAndroidTest.loadRequests()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="loadRequests" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
+      </group> <!-- requestsTab -->
       <group name="signup">
         <method signature="ProjectToeAndroidTest.signUpValidValues()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="signUpValidValues" class="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest"/>
       </group> <!-- signup -->
     </groups>
-    <test name="Command line test" duration-ms="435061" started-at="2016-08-24T15:31:26Z" finished-at="2016-08-24T15:38:41Z">
+    <test name="Command line test" duration-ms="739766" started-at="2016-08-25T13:11:49Z" finished-at="2016-08-25T13:24:09Z">
       <class name="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="setUp" is-config="true" duration-ms="206026" started-at="2016-08-24T18:31:26Z" finished-at="2016-08-24T18:34:52Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="setUp" is-config="true" duration-ms="57453" started-at="2016-08-25T16:11:49Z" finished-at="2016-08-25T16:12:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="signIn()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="signIn" duration-ms="8001" started-at="2016-08-24T18:34:52Z" finished-at="2016-08-24T18:35:00Z">
+        <test-method status="PASS" signature="signIn()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="signIn" duration-ms="1873" started-at="2016-08-25T16:12:47Z" finished-at="2016-08-25T16:12:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- signIn -->
-        <test-method status="PASS" signature="logIn()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="logIn" duration-ms="14525" started-at="2016-08-24T18:35:00Z" finished-at="2016-08-24T18:35:15Z">
+        <test-method status="PASS" signature="logIn()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="logIn" duration-ms="14740" started-at="2016-08-25T16:12:49Z" finished-at="2016-08-25T16:13:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logIn -->
-        <test-method status="PASS" signature="makePost()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="makePost" duration-ms="35012" started-at="2016-08-24T18:35:15Z" finished-at="2016-08-24T18:35:50Z">
+        <test-method status="PASS" signature="makePost()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="makePost" duration-ms="35270" started-at="2016-08-25T16:13:03Z" finished-at="2016-08-25T16:13:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- makePost -->
-        <test-method status="PASS" signature="hugPost()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="hugPost" duration-ms="5285" started-at="2016-08-24T18:35:50Z" finished-at="2016-08-24T18:35:55Z">
+        <test-method status="PASS" signature="hugPost()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="hugPost" duration-ms="4040" started-at="2016-08-25T16:13:39Z" finished-at="2016-08-25T16:13:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- hugPost -->
-        <test-method status="PASS" signature="commentPost()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="commentPost" duration-ms="13239" started-at="2016-08-24T18:35:55Z" finished-at="2016-08-24T18:36:08Z">
+        <test-method status="PASS" signature="commentPost()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="commentPost" duration-ms="15514" started-at="2016-08-25T16:13:43Z" finished-at="2016-08-25T16:13:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- commentPost -->
-        <test-method status="PASS" signature="goToChatTab()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="goToChatTab" duration-ms="4926" started-at="2016-08-24T18:36:08Z" finished-at="2016-08-24T18:36:13Z">
+        <test-method status="PASS" signature="loadGroups()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="loadGroups" duration-ms="6092" started-at="2016-08-25T16:13:58Z" finished-at="2016-08-25T16:14:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loadGroups -->
+        <test-method status="PASS" signature="searchGroup()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="searchGroup" duration-ms="18887" started-at="2016-08-25T16:14:04Z" finished-at="2016-08-25T16:14:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchGroup -->
+        <test-method status="PASS" signature="addGroup()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="addGroup" duration-ms="39182" started-at="2016-08-25T16:14:23Z" finished-at="2016-08-25T16:15:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addGroup -->
+        <test-method status="PASS" signature="ubgradeGroupToPremium()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="ubgradeGroupToPremium" duration-ms="1" started-at="2016-08-25T16:15:02Z" finished-at="2016-08-25T16:15:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ubgradeGroupToPremium -->
+        <test-method status="PASS" signature="makeGroupHelper()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="makeGroupHelper" duration-ms="0" started-at="2016-08-25T16:15:02Z" finished-at="2016-08-25T16:15:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- makeGroupHelper -->
+        <test-method status="PASS" signature="checkGroupDetails()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="checkGroupDetails" duration-ms="9618" started-at="2016-08-25T16:15:02Z" finished-at="2016-08-25T16:15:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkGroupDetails -->
+        <test-method status="PASS" signature="canWriteReview()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canWriteReview" duration-ms="26064" started-at="2016-08-25T16:15:12Z" finished-at="2016-08-25T16:15:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- canWriteReview -->
+        <test-method status="PASS" signature="canLeaveJoinPublicGroup()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canLeaveJoinPublicGroup" duration-ms="53497" started-at="2016-08-25T16:15:38Z" finished-at="2016-08-25T16:16:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- canLeaveJoinPublicGroup -->
+        <test-method status="PASS" signature="canLeaveJoinPrivateGroup()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canLeaveJoinPrivateGroup" duration-ms="54841" started-at="2016-08-25T16:16:32Z" finished-at="2016-08-25T16:17:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- canLeaveJoinPrivateGroup -->
+        <test-method status="PASS" signature="canBlockUnblockUsers()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canBlockUnblockUsers" duration-ms="120235" started-at="2016-08-25T16:17:26Z" finished-at="2016-08-25T16:19:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- canBlockUnblockUsers -->
+        <test-method status="PASS" signature="canBroadcastMessage()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canBroadcastMessage" duration-ms="20854" started-at="2016-08-25T16:19:27Z" finished-at="2016-08-25T16:19:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- canBroadcastMessage -->
+        <test-method status="PASS" signature="canAddRemoveHelper()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canAddRemoveHelper" duration-ms="10631" started-at="2016-08-25T16:19:48Z" finished-at="2016-08-25T16:19:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- canAddRemoveHelper -->
+        <test-method status="PASS" signature="canTogglePrivateSwitch()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canTogglePrivateSwitch" duration-ms="8104" started-at="2016-08-25T16:19:58Z" finished-at="2016-08-25T16:20:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- canTogglePrivateSwitch -->
+        <test-method status="PASS" signature="canAddPending()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canAddPending" duration-ms="11534" started-at="2016-08-25T16:20:06Z" finished-at="2016-08-25T16:20:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- canAddPending -->
+        <test-method status="PASS" signature="canChangeGroupKeywords()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="canChangeGroupKeywords" duration-ms="27952" started-at="2016-08-25T16:20:18Z" finished-at="2016-08-25T16:20:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- canChangeGroupKeywords -->
+        <test-method status="PASS" signature="goToRequestsTab()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="goToRequestsTab" duration-ms="4198" started-at="2016-08-25T16:20:46Z" finished-at="2016-08-25T16:20:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToRequestsTab -->
+        <test-method status="PASS" signature="loadRequests()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="loadRequests" duration-ms="883" started-at="2016-08-25T16:20:50Z" finished-at="2016-08-25T16:20:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loadRequests -->
+        <test-method status="PASS" signature="goToChatTab()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="goToChatTab" duration-ms="2790" started-at="2016-08-25T16:20:51Z" finished-at="2016-08-25T16:20:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- goToChatTab -->
-        <test-method status="PASS" signature="loadMessages()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="loadMessages" duration-ms="83" started-at="2016-08-24T18:36:13Z" finished-at="2016-08-24T18:36:13Z">
+        <test-method status="PASS" signature="loadMessages()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="loadMessages" duration-ms="604" started-at="2016-08-25T16:20:54Z" finished-at="2016-08-25T16:20:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadMessages -->
-        <test-method status="PASS" signature="startPrivateChat()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="startPrivateChat" duration-ms="26049" started-at="2016-08-24T18:36:13Z" finished-at="2016-08-24T18:36:39Z">
+        <test-method status="PASS" signature="startPrivateChat()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="startPrivateChat" duration-ms="22735" started-at="2016-08-25T16:20:54Z" finished-at="2016-08-25T16:21:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startPrivateChat -->
-        <test-method status="PASS" signature="startGroupChat()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="startGroupChat" duration-ms="22512" started-at="2016-08-24T18:36:39Z" finished-at="2016-08-24T18:37:02Z">
+        <test-method status="PASS" signature="startGroupChat()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="startGroupChat" duration-ms="25090" started-at="2016-08-25T16:21:17Z" finished-at="2016-08-25T16:21:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startGroupChat -->
-        <test-method status="PASS" signature="logout()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="logout" duration-ms="25104" started-at="2016-08-24T18:37:02Z" finished-at="2016-08-24T18:37:27Z">
+        <test-method status="PASS" signature="goToNotificationsTab()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="goToNotificationsTab" duration-ms="9110" started-at="2016-08-25T16:21:42Z" finished-at="2016-08-25T16:21:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToNotificationsTab -->
+        <test-method status="PASS" signature="loadNotifications()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="loadNotifications" duration-ms="3646" started-at="2016-08-25T16:21:51Z" finished-at="2016-08-25T16:21:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loadNotifications -->
+        <test-method status="PASS" signature="logout()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="logout" duration-ms="53804" started-at="2016-08-25T16:21:55Z" finished-at="2016-08-25T16:22:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logout -->
-        <test-method status="PASS" signature="signUpValidValues()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="signUpValidValues" duration-ms="72598" started-at="2016-08-24T18:37:27Z" finished-at="2016-08-24T18:38:39Z">
+        <test-method status="PASS" signature="signUpValidValues()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="signUpValidValues" duration-ms="78619" started-at="2016-08-25T16:22:49Z" finished-at="2016-08-25T16:24:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- signUpValidValues -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="afterClass" is-config="true" duration-ms="1609" started-at="2016-08-24T18:38:39Z" finished-at="2016-08-24T18:38:41Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest@13a57a3b]" name="afterClass" is-config="true" duration-ms="1812" started-at="2016-08-25T16:24:07Z" finished-at="2016-08-25T16:24:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="11" failures="0" name="TestSuite" time="439.226" errors="0" skipped="0">
+<testsuite tests="30" failures="0" name="TestSuite" time="741.787" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_20\jre\bin"/>
@@ -20,7 +20,7 @@
     <property name="basedir" value="C:\Users\Noha\git\projecttoeAppiumMaven"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_20\jre\lib\endorsed"/>
     <property name="os.arch" value="amd64"/>
-    <property name="surefire.real.class.path" value="C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefirebooter985376062259012053.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefirebooter2373919688061373382.jar"/>
     <property name="java.io.tmpdir" value="C:\Users\Noha\AppData\Local\Temp\"/>
     <property name="line.separator" value="
 "/>
@@ -44,7 +44,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_20\jre"/>
-    <property name="sun.java.command" value="C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefirebooter985376062259012053.jar C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefire988278432074973701tmp C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefire1352192406912533336tmp"/>
+    <property name="sun.java.command" value="C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefirebooter2373919688061373382.jar C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefire4353987340583609892tmp C:\Users\Noha\git\projecttoeAppiumMaven\target\surefire\surefire175017946634000720tmp"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -61,15 +61,34 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="signIn" time="8.001"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="logIn" time="14.525"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="makePost" time="35.012"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="hugPost" time="5.284"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="commentPost" time="13.239"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="goToChatTab" time="4.926"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="loadMessages" time="0.083"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="startPrivateChat" time="26.049"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="startGroupChat" time="22.512"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="logout" time="25.105"/>
-  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="signUpValidValues" time="72.598"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="signIn" time="1.874"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="logIn" time="14.74"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="makePost" time="35.27"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="hugPost" time="4.039"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="commentPost" time="15.522"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="loadGroups" time="6.093"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="searchGroup" time="18.887"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="addGroup" time="39.186"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="ubgradeGroupToPremium" time="0.001"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="makeGroupHelper" time="0.001"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="checkGroupDetails" time="9.619"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canWriteReview" time="26.064"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canLeaveJoinPublicGroup" time="53.497"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canLeaveJoinPrivateGroup" time="54.842"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canBlockUnblockUsers" time="120.235"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canBroadcastMessage" time="20.855"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canAddRemoveHelper" time="10.632"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canTogglePrivateSwitch" time="8.104"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canAddPending" time="11.534"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="canChangeGroupKeywords" time="27.952"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="goToRequestsTab" time="4.198"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="loadRequests" time="0.884"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="goToChatTab" time="2.79"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="loadMessages" time="0.605"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="startPrivateChat" time="22.734"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="startGroupChat" time="25.09"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="goToNotificationsTab" time="9.11"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="loadNotifications" time="3.646"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="logout" time="53.803"/>
+  <testcase classname="com.microdoers.projecttoemaven.projecttoeAppiumMaven.ProjectToeAndroidTest" name="signUpValidValues" time="78.62"/>
 </testsuite>
