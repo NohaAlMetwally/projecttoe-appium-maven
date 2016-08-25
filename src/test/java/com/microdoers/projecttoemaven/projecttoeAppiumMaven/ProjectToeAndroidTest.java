@@ -193,7 +193,7 @@ public class ProjectToeAndroidTest {
 		System.out.println("************ logIn Done ************");
 	}
 
-	@Test(groups = "loginIssues", priority = 2, enabled = false)
+	@Test(groups = "loginIssues", priority = 2, enabled = true)
 	public void forgotPasswordInValidEmail() throws MalformedURLException {
 		System.out
 				.println("************ forgot Password InValid Email ************");
@@ -236,7 +236,7 @@ public class ProjectToeAndroidTest {
 				.println("************ forgot Password InValid Email Done ************");
 	}
 
-	@Test(groups = "loginIssues", priority = 3, enabled = false)
+	@Test(groups = "loginIssues", priority = 3, enabled = true)
 	public void forgotPasswordValidEmail() throws MalformedURLException {
 		System.out
 				.println("************ forgot Password Valid Email ************");
@@ -272,7 +272,7 @@ public class ProjectToeAndroidTest {
 				.println("************ forgot Password Valid Email Done ************");
 	}
 
-	@Test(groups = "loginIssues", priority = 4, enabled = false)
+	@Test(groups = "loginIssues", priority = 4, enabled = true)
 	public void loginWithInvalidCredentials() throws MalformedURLException {
 		// replace here to make test fail
 		System.out
