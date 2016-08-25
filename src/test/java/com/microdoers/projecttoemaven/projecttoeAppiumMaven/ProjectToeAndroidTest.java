@@ -107,7 +107,7 @@ public class ProjectToeAndroidTest {
 		capabilities.setCapability("platformVersion", "5.1");
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,
 				"Nexus_7_API_22_2");
-		capabilities.setCapability("launchTimeout", 90000 * 2);
+		capabilities.setCapability("androidInstallTimeout", 900000);
 		driver = new AndroidDriver(new URL("http://127.0.0.1:5000/wd/hub"),
 				capabilities);
 
