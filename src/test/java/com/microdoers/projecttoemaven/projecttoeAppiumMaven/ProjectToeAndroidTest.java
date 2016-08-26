@@ -48,7 +48,7 @@ public class ProjectToeAndroidTest {
 	// APK Path
 	// private static final String TARGET_APP_PATH =
 	// "/User/user/Desktop/com.microdoers.projecttoe-versionDevelopment-debug.apk";
-	private AppiumDriver driver;
+	private AppiumDriver<WebElement> driver;
 	private String username = "test666";
 	private String password = "666666";
 
@@ -108,7 +108,7 @@ public class ProjectToeAndroidTest {
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,
 				"Nexus_7_API_22_2");
 		capabilities.setCapability("androidInstallTimeout", 2000000);
-		driver = new AndroidDriver(new URL("http://127.0.0.1:5000/wd/hub"),
+		driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:5000/wd/hub"),
 				capabilities);
 
 		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
@@ -337,8 +337,8 @@ public class ProjectToeAndroidTest {
 						By.id("android:id/message")).getText());
 				driver.findElement(By.id("android:id/button1")).click();
 				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
-				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+				((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
+				((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 			} else {
@@ -433,7 +433,7 @@ public class ProjectToeAndroidTest {
 			} else {
 				System.out.println("comment On Post Failed!");
 			}
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 		} catch (Exception e) {
 			System.out
 					.println("Couldn't comment On post, something went wrong");
@@ -457,7 +457,7 @@ public class ProjectToeAndroidTest {
 			if (isElementPresent(By
 					.id("com.microdoers.projecttoe:id/premium_badge"))) {
 				upgradeUserToPremium = true;
-				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+				((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				System.out.println("User is Premium");
 				System.out.println("Upgrade User To Premium succeed");
 				// user is not premium
@@ -472,12 +472,12 @@ public class ProjectToeAndroidTest {
 						driver.findElement(
 								By.id("com.android.vending:id/continue_button"))
 								.click();
-						((AndroidDriver) driver)
+						((AndroidDriver<WebElement>) driver)
 								.pressKeyCode(AndroidKeyCode.BACK);
 						(new WebDriverWait(driver, 60))
 								.until(ExpectedConditions.presenceOfElementLocated(By
 										.id("com.microdoers.projecttoe:id/subscription_month_btn")));
-						((AndroidDriver) driver)
+						((AndroidDriver<WebElement>) driver)
 								.pressKeyCode(AndroidKeyCode.BACK);
 						System.out.println("couldn't upgrade error occurred ");
 					} else {
@@ -491,7 +491,7 @@ public class ProjectToeAndroidTest {
 										.id("com.microdoers.projecttoe:id/admin_badge")));
 						elementDialogButton.click();
 						upgradeUserToPremium = true;
-						((AndroidDriver) driver)
+						((AndroidDriver<WebElement>) driver)
 								.pressKeyCode(AndroidKeyCode.BACK);
 						System.out
 								.println("subscribe To Premium Monthely succeed");
@@ -499,7 +499,7 @@ public class ProjectToeAndroidTest {
 
 					}
 				} catch (Exception e) {
-					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 					System.out.println("Couldn't find Become a Premium Member");
 					System.out.println("Upgrade User To Premium Failed");
 				}
@@ -539,7 +539,7 @@ public class ProjectToeAndroidTest {
 		System.out.println("************ load Groups Done ************");
 	}
 
-	@Test(groups = "groupsTab", priority = 22, enabled = true)
+	@Test(groups = "groupsTab", priority = 22, enabled = false)
 	public void searchGroup() throws Exception {
 		// replace here to make test fail
 		System.out.println("************ search group ************");
@@ -567,12 +567,12 @@ public class ProjectToeAndroidTest {
 			(new WebDriverWait(driver, 60)).until(ExpectedConditions
 					.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/group_name")));
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			 ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 			(new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
 			// go back to groups tab
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			 ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 
 			System.out.println("search group success!");
 		} catch (NotFoundException e) {
@@ -637,7 +637,7 @@ public class ProjectToeAndroidTest {
 			// check if creating group failed and dialog shows up
 			if (ElemetDialogTitle.getText().equals("Create group Failed")) {
 				driver.findElement(By.id("android:id/button1")).click();
-				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+				((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				// change in new apk
 			} else if (ElemetDialogTitle.getText().equals(
 					"Ready to add \"Helpers?\"")) {
@@ -662,7 +662,7 @@ public class ProjectToeAndroidTest {
 
 			}
 		} catch (NotFoundException e) {
-			System.out.println("search add group, something went wrong");
+			System.out.println("didn't add group, something went wrong");
 		}
 		System.out.println("************ add group Done ************");
 	}
@@ -722,7 +722,7 @@ public class ProjectToeAndroidTest {
 						.until(ExpectedConditions.presenceOfElementLocated(By
 								.id("com.microdoers.projecttoe:id/makeNetworkHelperMode")))
 						.click();
-				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+				((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				System.out.println("Make Group Helper-Mode Successfully!");
 			} catch (Exception e) {
 				System.out.println("Couldn't Make Group in Helper-Mode");
@@ -955,7 +955,7 @@ public class ProjectToeAndroidTest {
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/action_edit_profile")));
 			// back to group tab
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 		} else {
 			// if no alert appears then review has been written
 			// successfully
@@ -963,7 +963,7 @@ public class ProjectToeAndroidTest {
 			(new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/action_edit_profile")));
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 			System.out.println("Review has been written successfully!");
 		}
 
@@ -999,7 +999,7 @@ public class ProjectToeAndroidTest {
 				if (!isElementPresent(By.name("Want Members Faster?"))) {
 					System.out.println("can boost group succeed");
 				} else {
-					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 					System.out.println("couldn't boost error occurred");
 				} // go to groups tab
 				(new WebDriverWait(driver, 60))
@@ -1048,7 +1048,7 @@ public class ProjectToeAndroidTest {
 				(new WebDriverWait(driver, 60)).until(
 						ExpectedConditions.presenceOfElementLocated(By
 								.id("android:id/button1"))).click();
-				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+				((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				// check for helper icone, this group is helper try
 				try {
 					// Maybe It's not visible on the screen so we scroll to it
@@ -1067,13 +1067,13 @@ public class ProjectToeAndroidTest {
 				(new WebDriverWait(driver, 60))
 						.until(ExpectedConditions.presenceOfElementLocated(By
 								.id("com.microdoers.projecttoe:id/action_edit_profile")));
-				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+				((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 			} catch (Exception e) {
 				System.out.println("Couldn't find menu");
 			}
 		} else {
 			System.out.println("Group is not even premium");
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 		}
 		System.out
 				.println("************ Can Downgrade Group Done ************");
@@ -1132,7 +1132,6 @@ public class ProjectToeAndroidTest {
 						.until(ExpectedConditions.presenceOfElementLocated(By
 								.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
 				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
-
 				try {
 					// go to "#My_School" group
 					searchSpecificGroup("My_School");
@@ -1157,14 +1156,12 @@ public class ProjectToeAndroidTest {
 					(new WebDriverWait(driver, 60))
 							.until(ExpectedConditions.presenceOfElementLocated(By
 									.id("com.microdoers.projecttoe:id/group_name")));
-					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
-					WebElement elementTypeYourSearch = (new WebDriverWait(
+					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);					WebElement elementTypeYourSearch = (new WebDriverWait(
 							driver, 60))
 							.until(ExpectedConditions.presenceOfElementLocated(By
 									.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
 					// go to group tab
 					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
-
 				} catch (Exception e) {
 					System.out
 							.println("something went wrong couldn't join group");
@@ -1239,8 +1236,7 @@ public class ProjectToeAndroidTest {
 					(new WebDriverWait(driver, 60))
 							.until(ExpectedConditions.presenceOfElementLocated(By
 									.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
-					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
-					try {
+					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);					try {
 						// go to privateGroupName group
 						searchSpecificGroup("AppiumPrivateAndroid");
 						// join privateGroupName group again
@@ -1263,29 +1259,26 @@ public class ProjectToeAndroidTest {
 						(new WebDriverWait(driver, 60))
 								.until(ExpectedConditions.presenceOfElementLocated(By
 										.id("com.microdoers.projecttoe:id/group_name")));
-						((AndroidDriver) driver)
+						((AndroidDriver<WebElement>) driver)
 								.pressKeyCode(AndroidKeyCode.BACK);
 						WebElement elementTypeYourSearch = (new WebDriverWait(
 								driver, 60))
 								.until(ExpectedConditions.presenceOfElementLocated(By
 										.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
 						// go to group tab
-						((AndroidDriver) driver)
-								.pressKeyCode(AndroidKeyCode.BACK);
+						((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 
 					} catch (NotFoundException e) {
 						System.out
 								.println("something went wrong couldn't join group");
 						// go to search
-						((AndroidDriver) driver)
-								.pressKeyCode(AndroidKeyCode.BACK);
+						((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 						WebElement elementTypeYourSearch = (new WebDriverWait(
 								driver, 60))
 								.until(ExpectedConditions.presenceOfElementLocated(By
 										.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
 						// go to group tab
-						((AndroidDriver) driver)
-								.pressKeyCode(AndroidKeyCode.BACK);
+						((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 					}
 				}
 				// if user is didn't join group
@@ -1309,7 +1302,7 @@ public class ProjectToeAndroidTest {
 								.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
 				// go to group tab
 				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
-			}
+				}
 		} catch (Exception e) {
 			System.out.println("didn't find leave group");
 
@@ -1391,7 +1384,7 @@ public class ProjectToeAndroidTest {
 			elementBlockedUsers.get(0).click();
 			System.out.println("unblocked user");
 			// back to admin panel screen
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 			(new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/blocked_users_lable")));
@@ -1430,7 +1423,7 @@ public class ProjectToeAndroidTest {
 							.xpath("//android.widget.TextView[@resource-id='com.microdoers.projecttoe:id/post_comment']"));
 			assertEquals(postContent, elementBlockedUsers.get(0).getText());
 			// go to admin panel activity
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 			(new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/message_all_users_lable")));
@@ -1471,12 +1464,12 @@ public class ProjectToeAndroidTest {
 			System.out.println("removed helper");
 
 			// go to admin panel activity
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 			(new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/message_all_users_lable")));
 			// go to group profile
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 			(new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/action_edit_profile")));
@@ -1550,7 +1543,7 @@ public class ProjectToeAndroidTest {
 			}
 
 			// go to group profile
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 			(new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/action_edit_profile")));
@@ -1601,7 +1594,7 @@ public class ProjectToeAndroidTest {
 				System.out.println("didn't find helper mode" + e.getMessage());
 			}
 			// go to group profile
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 			(new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/action_edit_profile")));
@@ -1673,13 +1666,13 @@ public class ProjectToeAndroidTest {
 				} else {
 					System.out.println("there're no pending requests");
 				}
-				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+				((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 
 				(new WebDriverWait(driver, 60))
 						.until(ExpectedConditions.presenceOfElementLocated(By
 								.id("com.microdoers.projecttoe:id/message_all_users_lable")));
 				// go to group profile
-				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+				((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				(new WebDriverWait(driver, 60))
 						.until(ExpectedConditions.presenceOfElementLocated(By
 								.id("com.microdoers.projecttoe:id/action_edit_profile")));
@@ -1755,17 +1748,17 @@ public class ProjectToeAndroidTest {
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/message_all_users_lable")));
 			// go to group profile
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 			(new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/action_edit_profile")));
 			// go to search
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 			WebElement elementTypeYourSearch = (new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
 			// go to group tab
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 			System.out.println("Can Change Group Keywords successfully!");
 		} catch (Exception e) {
 			System.out.println("didn't find admin panel, something went wrong");
@@ -1894,7 +1887,7 @@ public class ProjectToeAndroidTest {
 		} catch (NoSuchElementException e) {
 			// if start new conversation activity opened so soone, friends list
 			// may not be show up
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 			// click on new conversation
 			(new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
@@ -1921,7 +1914,7 @@ public class ProjectToeAndroidTest {
 			System.out.println("message hasn't been posted successfully"
 					+ e.getMessage());
 		}
-		((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+		((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 		// ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
 		System.out.println("Start Private Chat Succeed!");
 		System.out.println("************ Start Private Chat Done ************");
@@ -1952,7 +1945,7 @@ public class ProjectToeAndroidTest {
 		} catch (NoSuchElementException e) {
 			// if start new conversation activity opened so soone, friends list
 			// may not be show up
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 			// click on new conversation
 			(new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
@@ -1984,7 +1977,7 @@ public class ProjectToeAndroidTest {
 					+ e.getMessage());
 		}
 		// ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
-		((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+		((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 		System.out.println("Start Group Chat Succeed!");
 		System.out.println("************ Start Group Chat Done ************");
 	}
@@ -2064,7 +2057,7 @@ public class ProjectToeAndroidTest {
 				try {
 					if (isElementPresent(By.name("Post"))) {
 						System.out.println("found Post successfully!");
-						((AndroidDriver) driver)
+						((AndroidDriver<WebElement>) driver)
 								.pressKeyCode(AndroidKeyCode.BACK);
 					} else {
 						if (isElementPresent(By.name("Post Not Found"))) {
@@ -2073,14 +2066,14 @@ public class ProjectToeAndroidTest {
 						} else {
 							System.out
 									.println("Expected to find post, but didn't");
-							((AndroidDriver) driver)
+							((AndroidDriver<WebElement>) driver)
 									.pressKeyCode(AndroidKeyCode.BACK);
 
 						}
 					}
 				} catch (NotFoundException e) {
 					// TODO: handle exception
-					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				}
 				break;
 			case "their profile":
@@ -2096,10 +2089,10 @@ public class ProjectToeAndroidTest {
 						System.out
 								.println("Expected to find friend's profile, but didn't");
 					}
-					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				} catch (NotFoundException e) {
 					// TODO: handle exception
-					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				}
 
 				break;
@@ -2114,9 +2107,9 @@ public class ProjectToeAndroidTest {
 						System.out.println("didn't find Pending Requests");
 
 					}
-					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				} catch (NotFoundException e) {
-					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				}
 				break;
 			case "reviewed":
@@ -2129,9 +2122,9 @@ public class ProjectToeAndroidTest {
 						System.out.println("didn't find Reviews");
 
 					}
-					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				} catch (NotFoundException e) {
-					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				}
 
 				break;
@@ -2145,9 +2138,9 @@ public class ProjectToeAndroidTest {
 						System.out.println("didn't find My Profile");
 
 					}
-					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				} catch (NotFoundException e) {
-					((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+					((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 				}
 				break;
 			default:
@@ -2322,7 +2315,7 @@ public class ProjectToeAndroidTest {
 			elementPhoneNo.clear();
 			elementPhoneNo.sendKeys("01003928740");
 
-			((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+			((AndroidDriver<WebElement>) driver).pressKeyCode(AndroidKeyCode.BACK);
 
 			driver.findElement(By.name("SAVE")).click();
 			System.out.println("edit profile successfully");
