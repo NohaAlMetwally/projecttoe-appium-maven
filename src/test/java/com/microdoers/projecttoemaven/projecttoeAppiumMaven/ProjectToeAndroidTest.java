@@ -1308,6 +1308,9 @@ public class ProjectToeAndroidTest {
 				// if user is didn't join group
 			} else {
 				((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
+				(new WebDriverWait(driver, 60)).until(ExpectedConditions
+						.presenceOfElementLocated(By
+								.id("com.microdoers.projecttoe:id/group_name")));
 				if (isElementPresent(By
 						.id("com.microdoers.projecttoe:id/join_group_button"))) {
 					driver.findElement(
