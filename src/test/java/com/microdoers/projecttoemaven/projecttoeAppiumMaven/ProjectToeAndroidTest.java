@@ -1345,10 +1345,10 @@ public class ProjectToeAndroidTest {
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/join_support_group_btn")));
 			elementJoinSuppGroup.click();
-			if (isElementPresent(By
+			/*if (isElementPresent(By
 					.id("com.microdoers.projecttoe:id/join_support_group_btn"))) {
 				elementJoinSuppGroup.click();
-			}
+			}*/
 			WebElement elementTypeYourSearch = (new WebDriverWait(driver, 60))
 					.until(ExpectedConditions.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/autoCompleteSearch")));
