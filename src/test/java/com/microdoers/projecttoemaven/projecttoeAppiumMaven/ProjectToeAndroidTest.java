@@ -1890,9 +1890,9 @@ public class ProjectToeAndroidTest {
 	public void loadMessages() throws Exception {
 		// replace here to make test fail
 		System.out.println("************ Load messages ************");
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		try {
-			(new WebDriverWait(driver, 60)).until(ExpectedConditions
+			(new WebDriverWait(driver, 120)).until(ExpectedConditions
 					.presenceOfElementLocated(By
 							.id("com.microdoers.projecttoe:id/last_message")));
 
