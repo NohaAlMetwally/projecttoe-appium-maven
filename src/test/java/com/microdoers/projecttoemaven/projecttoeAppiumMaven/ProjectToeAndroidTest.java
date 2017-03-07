@@ -109,7 +109,7 @@ public class ProjectToeAndroidTest {
 				"Nexus_7_API_22_2");
 		capabilities.setCapability("androidInstallTimeout", 2000000);
 		driver = new AndroidDriver<WebElement>(new URL(
-				"http://127.0.0.1:5000/wd/hub"), capabilities);
+				"http://127.0.0.1:4726/wd/hub"), capabilities);
 
 		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 		Thread.sleep(10000 * 2);
