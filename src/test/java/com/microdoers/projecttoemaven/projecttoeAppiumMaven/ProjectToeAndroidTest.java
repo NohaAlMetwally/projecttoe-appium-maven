@@ -104,9 +104,9 @@ public class ProjectToeAndroidTest {
 						"http://127.0.0.1:8080/job/ProjectToeAndroid/lastSuccessfulBuild/artifact/com.microdoers.projecttoe/build/outputs/apk/com.microdoers.projecttoe-versionDevelopment-debug.apk");
 
 		capabilities.setCapability("platformName", "Android");
-		capabilities.setCapability("platformVersion", "5.1");
+		capabilities.setCapability("platformVersion", "7.0");
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,
-				"Nexus_7_API_22_2");
+				"Genymotion7");
 		capabilities.setCapability("androidInstallTimeout", 2000000);
 		driver = new AndroidDriver<WebElement>(new URL(
 				"http://127.0.0.1:4726/wd/hub"), capabilities);
